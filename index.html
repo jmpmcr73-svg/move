@@ -14,7 +14,7 @@ html,body{background:var(--ink0);color:var(--a3);font-family:var(--fs);line-heig
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .hide{display:none!important}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes pulseRing{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.5);opacity:0}}
+@keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
 
 .home{min-height:100vh;padding:40px;background:radial-gradient(ellipse 1200px 800px at 50% 0%,rgba(8,145,178,.12),transparent 60%)}
 .hhd{display:flex;justify-content:space-between;align-items:center;margin-bottom:64px}
@@ -60,7 +60,6 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .hd{grid-area:hdr;background:var(--ink1);border-bottom:1px solid var(--ink3);padding:0 28px;display:flex;align-items:center;justify-content:space-between}
 .hd .cr{font-family:var(--fm);font-size:11px;color:var(--a1);letter-spacing:.08em;text-transform:uppercase}
 .hd .cr strong{color:var(--pp);font-weight:500}
-.hd .cr .bk2{color:var(--c1);cursor:pointer}
 .hd .rg{display:flex;gap:14px;align-items:center;font-family:var(--fm);font-size:11px;color:var(--a1)}
 .hd .pl{padding:5px 10px;background:var(--ink2);border:1px solid var(--ink3);border-radius:3px}
 .hd .pl strong{color:var(--c1);font-weight:500}
@@ -117,7 +116,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .ed-hero .tt{flex:1}
 .ed-hero h2{font-weight:800;font-size:30px;letter-spacing:-.025em;color:var(--pp);margin-bottom:4px}
 .ed-hero .cd{font-family:var(--fm);font-size:11px;color:var(--c2);letter-spacing:.08em}
-.ed-hero .mt{display:flex;gap:20px;margin-top:14px;font-family:var(--fm);font-size:11px;color:var(--a2)}
+.ed-hero .mt{display:flex;gap:20px;margin-top:14px;font-family:var(--fm);font-size:11px;color:var(--a2);flex-wrap:wrap}
 .ed-hero .mt strong{color:var(--pp);font-weight:500;font-family:var(--fs)}
 .ed-hero .ab{padding:8px 14px;border:1px solid var(--wr);background:rgba(245,158,11,.08);color:var(--wr);font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .ed-hero .ab.cr{border-color:var(--ht);background:rgba(239,68,68,.08);color:#fca5a5}
@@ -171,7 +170,6 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .stress-bar .sl span{color:var(--a1)}
 .stress-bar .sl strong{color:var(--pp);font-weight:500}
 .stress-track{position:relative;height:28px;background:linear-gradient(90deg,#22c55e 0%,#84cc16 30%,#eab308 55%,#f97316 75%,#ef4444 100%);border-radius:3px;overflow:hidden}
-.stress-track::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.5),transparent 50%,rgba(0,0,0,.5));opacity:.3}
 .stress-mark{position:absolute;top:-6px;width:3px;height:40px;background:var(--pp);box-shadow:0 0 8px rgba(255,255,255,.6);transition:left .8s ease-out;z-index:2}
 .stress-mark::after{content:attr(data-lbl);position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-family:var(--fm);font-size:10px;color:var(--pp);white-space:nowrap}
 .stress-zones{display:flex;justify-content:space-between;margin-top:8px;font-family:var(--fm);font-size:9.5px;color:var(--a1);letter-spacing:.05em}
@@ -186,9 +184,30 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .displacement{position:relative;height:140px;background:var(--ink0);border:1px solid var(--ink3);margin-bottom:8px}
 .dsp-svg{width:100%;height:100%}
 
-.drawer{position:fixed;inset:0;background:rgba(10,10,11,.85);backdrop-filter:blur(8px);z-index:100;display:none}
+.catgrp{margin-bottom:20px}
+.catgrp h3{font-size:13px;font-family:var(--fm);text-transform:uppercase;letter-spacing:.15em;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--ink3)}
+.sensor-row{background:var(--ink1);border:1px solid var(--ink3);padding:12px 16px;margin-bottom:6px;display:grid;grid-template-columns:80px 1fr auto auto auto;gap:14px;align-items:center}
+.sensor-row .sc{font-family:var(--fm);font-size:10.5px;font-weight:700;letter-spacing:.02em}
+.sensor-row .si strong{display:block;font-size:13.5px;color:var(--pp);font-weight:500;margin-bottom:2px}
+.sensor-row .si strong .star{color:#f59e0b;margin-left:4px}
+.sensor-row .si span{font-family:var(--fm);font-size:10.5px;color:var(--a1)}
+.sensor-row .sm{font-family:var(--fm);font-size:10.5px;text-align:right;color:var(--a1)}
+.sensor-row .sm strong{display:block;color:var(--pp);font-weight:500;font-family:var(--fs)}
+.sensor-row .sb{font-family:var(--fm);font-size:9.5px;padding:4px 8px;border:1px solid;text-transform:uppercase;letter-spacing:.08em}
+.sensor-row .sb.dif{border-color:rgba(245,158,11,.4);color:#fcd34d;background:rgba(245,158,11,.06)}
+.sensor-row .sb.std{border-color:rgba(34,197,94,.3);color:#86efac}
 
-@media(max-width:960px){.roles{grid-template-columns:1fr}.app{grid-template-columns:1fr;grid-template-areas:"hdr" "main"}.nv{display:none}.dg{grid-template-columns:1fr}.kp{grid-template-columns:repeat(2,1fr)}.ed-grid{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr}}
+.tarjeta-row{background:var(--ink1);border:1px solid var(--ink3);padding:16px 20px;margin-bottom:8px;display:grid;grid-template-columns:90px 1fr auto auto auto;gap:18px;align-items:center}
+.tarjeta-row .tc{font-family:var(--fm);font-size:13px;font-weight:700;color:var(--c1);letter-spacing:.02em}
+.tarjeta-row .ti strong{display:block;font-size:14px;color:var(--pp);font-weight:500;margin-bottom:3px}
+.tarjeta-row .ti span{font-family:var(--fm);font-size:10.5px;color:var(--a1);display:block;margin-bottom:8px}
+.tarjeta-row .ti .chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.tarjeta-row .ti .chips .chip{font-family:var(--fm);font-size:9px;padding:3px 7px;border:1px solid;letter-spacing:.05em}
+.tarjeta-row .tm{font-family:var(--fm);font-size:11px;text-align:right;color:var(--a1)}
+.tarjeta-row .tm strong{display:block;color:var(--pp);font-weight:500;font-family:var(--fs);font-size:13px}
+.tarjeta-row .tb{font-family:var(--fm);font-size:11px;padding:8px 12px;border:1px solid rgba(34,197,94,.3);color:#86efac;text-align:right;font-weight:500}
+
+@media(max-width:960px){.roles{grid-template-columns:1fr}.app{grid-template-columns:1fr;grid-template-areas:"hdr" "main"}.nv{display:none}.dg{grid-template-columns:1fr}.kp{grid-template-columns:repeat(2,1fr)}.ed-grid{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr}.sensor-row{grid-template-columns:1fr}.tarjeta-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -201,7 +220,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 <div class="hero">
 <div class="kk">Elegí tu rol para entrar al sistema</div>
 <h1 class="ht1">No es dónde se <em>lee</em>. Es dónde está <em>el problema</em>.</h1>
-<p class="hsub">60 días de calibración enseñan al sistema a proyectar desde puntos discretos al comportamiento continuo del edificio. Los sensores leen; los algoritmos proyectan.</p>
+<p class="hsub">60 días de calibración enseñan al sistema a proyectar desde puntos discretos al comportamiento continuo del edificio. 18 sensores · 6 tarjetas · 5 diferenciadores mundiales.</p>
 </div>
 <div class="roles">
 <button class="rc" style="--cc:#22d3ee" onclick="enter('pc')">
@@ -214,14 +233,14 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 <button class="rc" style="--cc:#a78bfa" onclick="enter('sm')">
 <div class="ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 10h3l2-6 2 12 2-10 2 8 2-4 2 4h3"/></svg></div>
 <h3>Sismólogo MARN</h3><div class="sb">Red sísmica · waveforms</div>
-<p>Streams FDSN en vivo, detección P/S, miniSEED, SeedLink a Red Sísmica Nacional.</p>
+<p>Streams FDSN, detección P/S, miniSEED, SeedLink a Red Sísmica Nacional.</p>
 <ul><li><span>Stack</span><strong>ObsPy · StationXML</strong></li><li><span>Vista</span><strong>Zona NTDS → estación</strong></li></ul>
 <span class="en">Entrar como MARN →</span>
 </button>
 <button class="rc" style="--cc:#fb7185" onclick="enter('ie')">
 <div class="ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="12" height="16"/><line x1="4" y1="7" x2="16" y2="7"/><line x1="4" y1="12" x2="16" y2="12"/></svg></div>
 <h3>Ingeniero Estructural</h3><div class="sb">Elástico · plástico · fatiga</div>
-<p>Campo de deformación proyectado sobre el edificio, estado del material, localización del daño.</p>
+<p>Campo de deformación proyectado, estado material, localización del daño.</p>
 <ul><li><span>Norma</span><strong>ISO 16587 · NTDS 94</strong></li><li><span>Vista</span><strong>Proyección 3D continua</strong></li></ul>
 <span class="en">Entrar como Ing. →</span>
 </button>
@@ -236,6 +255,9 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 <a data-v="ed"><span class="d"></span>Edificios</a>
 <a data-v="al"><span class="d"></span>Alertas</a>
 <a data-v="rd"><span class="d"></span>Red y gateways</a>
+<div class="sc">Hardware</div>
+<a data-v="sn"><span class="d"></span>Sensores (18)</a>
+<a data-v="tj"><span class="d"></span>Tarjetas (6)</a>
 <div class="sc">Datos</div>
 <a data-v="ev"><span class="d"></span>Eventos sísmicos</a>
 <a data-v="ex"><span class="d"></span>Exportar miniSEED</a>
@@ -257,18 +279,46 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 <script>
 const EDI=[
 {c:'SV-SS-TPR-001',n:'Torre Presidente',t:'tw',h:100,w:30,d:30,p:20,y:2018,sy:'Concreto armado',nt:'III · S2',lat:13.6985,lng:-89.2350,he:94,state:'elastic',stress:0.18,pr:2.1,am:5.0,
-nd:[{c:'TPR01.00',l:'Cimiento N',x:0,y:-15,z:0},{c:'TPR01.01',l:'Cimiento S',x:0,y:15,z:0},{c:'TPR01.02',l:'Piso 5 N',x:0,y:-15,z:25},{c:'TPR01.03',l:'Piso 5 S',x:0,y:15,z:25},{c:'TPR01.04',l:'Piso 12',x:0,y:0,z:60},{c:'TPR01.05',l:'Piso 18 N',x:0,y:-15,z:90},{c:'TPR01.06',l:'Azotea N',x:0,y:-15,z:100},{c:'TPR01.07',l:'Azotea S',x:0,y:15,z:100}],
-hot:null},
+nd:[{c:'TPR01.00',l:'Cimiento N',x:0,y:-15,z:0},{c:'TPR01.01',l:'Cimiento S',x:0,y:15,z:0},{c:'TPR01.02',l:'Piso 5 N',x:0,y:-15,z:25},{c:'TPR01.03',l:'Piso 5 S',x:0,y:15,z:25},{c:'TPR01.04',l:'Piso 12',x:0,y:0,z:60},{c:'TPR01.05',l:'Piso 18 N',x:0,y:-15,z:90},{c:'TPR01.06',l:'Azotea N',x:0,y:-15,z:100},{c:'TPR01.07',l:'Azotea S',x:0,y:15,z:100}],hot:null},
 {c:'SV-SS-CAT-001',n:'Catedral Metropolitana',t:'tm',h:50,w:50,d:35,p:3,y:1999,sy:'Concreto + acero',nt:'II · S3',lat:13.6994,lng:-89.1905,he:87,state:'elastic_trend',stress:0.32,pr:0.8,am:4.0,
-nd:[{c:'CAT01.00',l:'Cimiento central',x:0,y:0,z:0},{c:'CAT01.01',l:'Cim. torre N',x:-15,y:0,z:0},{c:'CAT01.02',l:'Cim. torre S',x:15,y:0,z:0},{c:'CAT01.03',l:'Base cúpula',x:0,y:0,z:20},{c:'CAT01.04',l:'Cúpula media',x:0,y:0,z:35},{c:'CAT01.05',l:'Cúpula sup.',x:0,y:0,z:45},{c:'CAT01.06',l:'Torre N top',x:-15,y:0,z:50},{c:'CAT01.07',l:'Torre S top',x:15,y:0,z:50}],
-hot:{x:0,y:0,z:32,r:8,lbl:'Fisura proyectada · base cúpula'}},
+nd:[{c:'CAT01.00',l:'Cimiento central',x:0,y:0,z:0},{c:'CAT01.01',l:'Cim. torre N',x:-15,y:0,z:0},{c:'CAT01.02',l:'Cim. torre S',x:15,y:0,z:0},{c:'CAT01.03',l:'Base cúpula',x:0,y:0,z:20},{c:'CAT01.04',l:'Cúpula media',x:0,y:0,z:35},{c:'CAT01.05',l:'Cúpula sup.',x:0,y:0,z:45},{c:'CAT01.06',l:'Torre N top',x:-15,y:0,z:50},{c:'CAT01.07',l:'Torre S top',x:15,y:0,z:50}],hot:{x:0,y:0,z:32,r:8,lbl:'Fisura proyectada · base cúpula'}},
 {c:'SV-SS-PAN-001',n:'Palacio Nacional',t:'ht',h:22,w:60,d:45,p:4,y:1911,sy:'Mampostería',nt:'I · S3',lat:13.6989,lng:-89.1910,he:72,state:'plastic',stress:0.68,pr:0.45,am:3.0,
-nd:[{c:'PAN01.00',l:'Cimiento NE',x:-25,y:-20,z:0},{c:'PAN01.01',l:'Cimiento NO',x:25,y:-20,z:0},{c:'PAN01.02',l:'Cimiento SE',x:-25,y:20,z:0},{c:'PAN01.03',l:'Cimiento SO',x:25,y:20,z:0},{c:'PAN01.04',l:'Azotea NE',x:-25,y:-20,z:22},{c:'PAN01.05',l:'Azotea NO',x:25,y:-20,z:22},{c:'PAN01.06',l:'Azotea SE',x:-25,y:20,z:22},{c:'PAN01.07',l:'Azotea SO',x:25,y:20,z:22}],
-hot:{x:-15,y:-5,z:12,r:10,lbl:'Deformación plástica · muro norte piso 2'}},
+nd:[{c:'PAN01.00',l:'Cimiento NE',x:-25,y:-20,z:0},{c:'PAN01.01',l:'Cimiento NO',x:25,y:-20,z:0},{c:'PAN01.02',l:'Cimiento SE',x:-25,y:20,z:0},{c:'PAN01.03',l:'Cimiento SO',x:25,y:20,z:0},{c:'PAN01.04',l:'Azotea NE',x:-25,y:-20,z:22},{c:'PAN01.05',l:'Azotea NO',x:25,y:-20,z:22},{c:'PAN01.06',l:'Azotea SE',x:-25,y:20,z:22},{c:'PAN01.07',l:'Azotea SO',x:25,y:20,z:22}],hot:{x:-15,y:-5,z:12,r:10,lbl:'Deformación plástica · muro norte piso 2'}},
 {c:'SV-SS-TNA-001',n:'Teatro Nacional',t:'cp',h:17,w:42,d:28,p:4,y:1917,sy:'Hennebique',nt:'II · S3',lat:13.6997,lng:-89.1908,he:89,state:'elastic',stress:0.22,pr:0.35,am:4.0,
-nd:[{c:'TNA01.00',l:'Cimiento frontal',x:0,y:-21,z:0},{c:'TNA01.01',l:'Cimiento trasero',x:0,y:21,z:0},{c:'TNA01.02',l:'Entrepiso sala',x:0,y:0,z:8},{c:'TNA01.03',l:'Palco lateral',x:-10,y:0,z:10},{c:'TNA01.04',l:'Azotea frontal',x:0,y:-21,z:17},{c:'TNA01.05',l:'Azotea trasera',x:0,y:21,z:17}],
-hot:null}];
+nd:[{c:'TNA01.00',l:'Cimiento frontal',x:0,y:-21,z:0},{c:'TNA01.01',l:'Cimiento trasero',x:0,y:21,z:0},{c:'TNA01.02',l:'Entrepiso sala',x:0,y:0,z:8},{c:'TNA01.03',l:'Palco lateral',x:-10,y:0,z:10},{c:'TNA01.04',l:'Azotea frontal',x:0,y:-21,z:17},{c:'TNA01.05',l:'Azotea trasera',x:0,y:21,z:17}],hot:null}];
+
 const AL=[{s:3,w:'hace 12 min',wt:'Vibración elevada · zona plástica localizada',wo:'PAN · proyectado muro N piso 2',ec:'SV-SS-PAN-001'},{s:2,w:'hace 47 min',wt:'Temperatura MCU fuera de rango',wo:'CAT01.03 · base cúpula',ec:'SV-SS-CAT-001'},{s:4,w:'hace 1 h 8 min',wt:'Posible onda P (descartada por MARN)',wo:'TPR01.00',ec:'SV-SS-TPR-001'},{s:3,w:'hace 3 h',wt:'Drift inter-piso supera baseline',wo:'PAN · piso 2 → cimiento',ec:'SV-SS-PAN-001'}];
+
+const SENSORES=[
+{c:'CINE-ACC3',cat:'CINE',n:'Aceleración 3 ejes',tec:'ADXL355 MEMS banda ancha',intf:'SPI',rate:'1 kHz · ±2g',dif:false},
+{c:'CINE-GYR3',cat:'CINE',n:'Torsión y rotación',tec:'Giroscopio MPU9250',intf:'SPI',rate:'200 Hz · ±2000°/s',dif:false},
+{c:'CINE-INC',cat:'CINE',n:'Desplome y pandeo',tec:'Inclinómetro SCA100T',intf:'SPI',rate:'50 Hz · 0.003°',dif:false},
+{c:'CINE-GPS',cat:'CINE',n:'Desplazamiento absoluto',tec:'GPS RTK u-blox ZED-F9P',intf:'UART',rate:'10 Hz · 1 cm',dif:false},
+{c:'CINE-AE',cat:'CINE',n:'Emisión acústica interna',tec:'Piezoeléctrico PZT alta frec.',intf:'Analog',rate:'100-400 kHz',dif:true},
+{c:'CINE-FBG',cat:'CINE',n:'Deformación distribuida',tec:'Redes de Bragg en fibra óptica',intf:'Óptico',rate:'1 kHz · µstrain',dif:true},
+{c:'MATE-HALL',cat:'MATE',n:'Fatiga del acero interno',tec:'Efecto Hall KY-024 / 3144E',intf:'Analog',rate:'100 Hz',dif:false},
+{c:'MATE-MAG',cat:'MATE',n:'Corrosión incipiente',tec:'Magnetómetro HMC5883',intf:'I2C',rate:'50 Hz · ±8 gauss',dif:false},
+{c:'SISM-GEO-P',cat:'SISM',n:'Detección onda P',tec:'Geófono SM-24 vertical',intf:'Analog',rate:'200 Hz · STA/LTA',dif:false},
+{c:'SISM-GEO-S',cat:'SISM',n:'Detección onda S',tec:'Geófono SM-24 horizontal',intf:'Analog',rate:'200 Hz',dif:false},
+{c:'SISM-RAD',cat:'SISM',n:'Gas Radón precursor',tec:'Espectrómetro alfa RD200M',intf:'UART',rate:'1 muestra/min',dif:true},
+{c:'SUEL-TDR',cat:'SUEL',n:'Humedad profunda suelo',tec:'TDR Meter TEROS 12',intf:'RS485',rate:'0.1 Hz · 0-100% VWC',dif:false},
+{c:'SUEL-RES',cat:'SUEL',n:'Resistividad del suelo',tec:'Array Wenner 4-electrodos',intf:'Analog',rate:'0.1 Hz',dif:false},
+{c:'SUEL-PIEZ',cat:'SUEL',n:'Presión de poros',tec:'Piezómetro Geokon 4500S',intf:'Analog',rate:'1 Hz · 0-700 kPa',dif:true},
+{c:'AMBI-TEMP',cat:'AMBI',n:'Temperatura ambiental',tec:'Termistor digital DHT22',intf:'1-Wire',rate:'0.5 Hz · ±0.5°C',dif:false},
+{c:'AMBI-HUM',cat:'AMBI',n:'Humedad ambiental',tec:'Higrómetro DHT22',intf:'1-Wire',rate:'0.5 Hz · ±2%',dif:false},
+{c:'AMBI-BAR',cat:'AMBI',n:'Barómetro + infrasonido',tec:'BMP388 + MEMS infrasonido',intf:'I2C',rate:'50 Hz · 300-1250 hPa',dif:true}];
+
+const CAT_COLOR={CINE:'#22d3ee',MATE:'#a78bfa',SISM:'#fb7185',SUEL:'#f59e0b',AMBI:'#84cc16'};
+const CAT_NAME={CINE:'Cinemática y dinámica estructural',MATE:'Estado físico de materiales',SISM:'Sismología predictiva y geofísica',SUEL:'Interacción suelo-estructura',AMBI:'Normalización ambiental'};
+
+const TARJETAS=[
+{c:'T-NSP',n:'Nodo sísmico principal',rol:'sensor primario · caballo de batalla',mcu:'ESP32-S3 N8R8 + ADS1256 24-bit',por_ed:8,costo:145,sensores:['CINE-ACC3','CINE-GYR3','CINE-INC','SISM-GEO-P','SISM-GEO-S','MATE-HALL','MATE-MAG','AMBI-TEMP','AMBI-HUM','AMBI-BAR']},
+{c:'T-GPS',n:'Nodo GPS/GNSS RTK',rol:'referencia posicional milimétrica',mcu:'ESP32-S3 + u-blox ZED-F9P',por_ed:2,costo:340,sensores:['CINE-GPS','AMBI-TEMP','AMBI-BAR']},
+{c:'T-AE',n:'Nodo emisión acústica',rol:'escucha fisuras microscópicas',mcu:'ESP32-S3 + AD7606 + preamp 40dB',por_ed:4,costo:420,sensores:['CINE-AE','AMBI-TEMP']},
+{c:'T-FBG',n:'Interrogador fibra óptica',rol:'sensor distribuido · vigas continuas',mcu:'RPi 4 + interrogador óptico',por_ed:1,costo:3200,sensores:['CINE-FBG']},
+{c:'T-GEO',n:'Nodo geofísico subsuelo',rol:'enterrado IP68 · cimientos',mcu:'ESP32-S3 + RS485 industrial',por_ed:2,costo:980,sensores:['SISM-RAD','SUEL-TDR','SUEL-RES','SUEL-PIEZ','AMBI-TEMP','AMBI-HUM']},
+{c:'T-GW',n:'Gateway del edificio',rol:'orquestador · ESP-NOW + LoRa',mcu:'RPi 4 + Heltec V3 LoRa + SSD',por_ed:1,costo:380,sensores:[]}];
+
 const RL={pc:{l:'Protección Civil'},sm:{l:'Sismólogo MARN'},ie:{l:'Ingeniero Estructural'}};
 let cRole='pc',cView='ov',cEdi=null,threeCtx=null;
 
@@ -278,369 +328,141 @@ document.querySelectorAll('.nv a[data-v]').forEach(a=>{a.onclick=()=>{destroyThr
 
 function sil(e,sz=40){
 const h=sz,w=e.t==='tw'?h*0.4:h*1.6;
-if(e.t==='tw')return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect x="${w*0.3}" y="2" width="${w*0.4}" height="${h-2}" fill="none" stroke="#22d3ee" stroke-width="0.8"/><rect x="${w*0.45}" y="0" width="${w*0.1}" height="3" fill="#0891b2"/></svg>`;
-if(e.t==='tm')return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect x="${w*0.05}" y="${h*0.45}" width="${w*0.12}" height="${h*0.55}" fill="none" stroke="#22d3ee" stroke-width="0.8"/><rect x="${w*0.83}" y="${h*0.45}" width="${w*0.12}" height="${h*0.55}" fill="none" stroke="#22d3ee" stroke-width="0.8"/><rect x="${w*0.27}" y="${h*0.6}" width="${w*0.46}" height="${h*0.4}" fill="none" stroke="#22d3ee" stroke-width="0.8"/><circle cx="${w*0.5}" cy="${h*0.55}" r="${h*0.18}" fill="none" stroke="#22d3ee" stroke-width="0.8"/></svg>`;
-if(e.t==='ht')return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect x="${w*0.05}" y="${h*0.4}" width="${w*0.9}" height="${h*0.6}" fill="none" stroke="#22d3ee" stroke-width="0.8"/><polygon points="${w*0.42},${h*0.4} ${w*0.58},${h*0.4} ${w*0.5},${h*0.28}" fill="#0891b2"/></svg>`;
-return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect x="${w*0.1}" y="${h*0.4}" width="${w*0.8}" height="${h*0.6}" fill="none" stroke="#22d3ee" stroke-width="0.8"/></svg>`;
+if(e.t==='tw')return '<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><rect x="'+(w*0.3)+'" y="2" width="'+(w*0.4)+'" height="'+(h-2)+'" fill="none" stroke="#22d3ee" stroke-width="0.8"/><rect x="'+(w*0.45)+'" y="0" width="'+(w*0.1)+'" height="3" fill="#0891b2"/></svg>';
+if(e.t==='tm')return '<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><rect x="'+(w*0.05)+'" y="'+(h*0.45)+'" width="'+(w*0.12)+'" height="'+(h*0.55)+'" fill="none" stroke="#22d3ee" stroke-width="0.8"/><rect x="'+(w*0.83)+'" y="'+(h*0.45)+'" width="'+(w*0.12)+'" height="'+(h*0.55)+'" fill="none" stroke="#22d3ee" stroke-width="0.8"/><rect x="'+(w*0.27)+'" y="'+(h*0.6)+'" width="'+(w*0.46)+'" height="'+(h*0.4)+'" fill="none" stroke="#22d3ee" stroke-width="0.8"/><circle cx="'+(w*0.5)+'" cy="'+(h*0.55)+'" r="'+(h*0.18)+'" fill="none" stroke="#22d3ee" stroke-width="0.8"/></svg>';
+if(e.t==='ht')return '<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><rect x="'+(w*0.05)+'" y="'+(h*0.4)+'" width="'+(w*0.9)+'" height="'+(h*0.6)+'" fill="none" stroke="#22d3ee" stroke-width="0.8"/><polygon points="'+(w*0.42)+','+(h*0.4)+' '+(w*0.58)+','+(h*0.4)+' '+(w*0.5)+','+(h*0.28)+'" fill="#0891b2"/></svg>';
+return '<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><rect x="'+(w*0.1)+'" y="'+(h*0.4)+'" width="'+(w*0.8)+'" height="'+(h*0.6)+'" fill="none" stroke="#22d3ee" stroke-width="0.8"/></svg>';
 }
 
-function rn(){const m=document.getElementById('mn');if(cEdi)return rEdDetail(m);if(cView==='ov')return rOv(m);if(cView==='ed')return rEdList(m);if(cView==='al')return rAl(m);if(cView==='rd')return rRd(m);if(cView==='ev')return rEv(m);if(cView==='ex')return rEx(m);}
-
-function setCrumbs(extra){const cR=document.getElementById('cR').textContent;const cV=document.getElementById('cV').textContent;document.getElementById('cr').innerHTML=`idworld / <strong>${cR}</strong> / <strong id="cV">${cV}</strong>${extra||''}`;document.getElementById('cV').textContent=cV;}
+function rn(){const m=document.getElementById('mn');if(cEdi)return rEdDetail(m);if(cView==='ov')return rOv(m);if(cView==='ed')return rEdList(m);if(cView==='al')return rAl(m);if(cView==='rd')return rRd(m);if(cView==='sn')return rSn(m);if(cView==='tj')return rTj(m);if(cView==='ev')return rEv(m);if(cView==='ex')return rEx(m);}
 
 function openEdi(code){destroyThree();cEdi=code;rn();}
+
+function stateLabel(s){return s==='elastic'?'elástico':s==='elastic_trend'?'elástico · tendencia':s==='plastic'?'PLÁSTICO':'deformación'}
 
 function rOv(m){
 let k;
 if(cRole==='pc')k=[{l:'Edificios vigilados',v:'4',d:'4/4 operativos',c:'up'},{l:'Nodos activos',v:'<em>30</em>/30',d:'latencia media 38 ms',c:'up'},{l:'Alertas 24h',v:'4',d:'1 con proyección activa',c:'wr'},{l:'Zona crítica',v:'1',d:'Palacio Nacional · plástica',c:'ht'}];
 else if(cRole==='sm')k=[{l:'Estaciones FDSN',v:'4',d:'red XX registrada',c:''},{l:'Canales en vivo',v:'<em>30</em>',d:'HHZ/HHN/HHE',c:'up'},{l:'Último evento',v:'M 2.1',d:'hace 18 d · Jucuapa',c:''},{l:'Sync GPS',v:'<em>±2</em> ms',d:'todos los nodos',c:'up'}];
 else k=[{l:'Salud promedio',v:'<em>85</em>%',d:'3 elásticos · 1 plástico',c:'wr'},{l:'Edificios en plástico',v:'1',d:'Palacio Nacional',c:'ht'},{l:'Drift máximo',v:'0.68%',d:'supera baseline 0.42',c:'wr'},{l:'Próxima inspección',v:'14 d',d:'Palacio Nacional',c:'wr'}];
-m.innerHTML=`<h1 class="dt">Vista general · ${RL[cRole].l}</h1><p class="ds">Red idworld en fase bootstrap. 30 nodos en 4 edificios. Los algoritmos de proyección están aprendiendo — ${Math.floor(Math.random()*20)+8}% de la calibración completada.</p>
-<div class="kp">${k.map(x=>`<div class="ki"><div class="l">${x.l}</div><div class="v">${x.v}</div><div class="dd ${x.c}">${x.d}</div></div>`).join('')}</div>
-<div class="dg">
-<div class="mp"><h3>Mapa operativo — San Salvador</h3><div class="hn">Click en un edificio para ver el modelo 3D y proyección de daño</div><div class="mc" id="mc"></div></div>
-<div class="pn"><h3>Alertas activas</h3><div class="hn">Con ubicación proyectada por el modelo</div>${AL.map(a=>`<div class="al s${a.s}" onclick='openEdi("${a.ec}")'><div class="wn">${a.w} · sev ${a.s}</div><div class="wt">${a.wt}</div><div class="wo">${a.wo}</div></div>`).join('')}</div>
-</div>
-<div class="pn"><h3>Edificios</h3><div class="hn">Click para entrar al modelo 3D y análisis multi-sensor</div>
-<div class="el">${EDI.map(e=>`<div class="er" onclick='openEdi("${e.c}")'><div class="sl">${sil(e,36)}</div><div class="ii"><strong>${e.n}</strong><span>${e.c} · ${e.sy} · NTDS ${e.nt}</span></div><div class="st"><strong>${e.h}m · ${e.p}niv</strong>${e.y}</div><div class="st"><strong>${stateLabel(e.state)}</strong>σ/σy = ${(e.stress*100).toFixed(0)}%</div><div class="he"><div class="bar" style="width:${e.he}%;background:${e.he>85?'var(--ok)':e.he>75?'var(--wr)':'var(--ht)'}"></div></div><div class="bd ${e.he>85?'ok':e.he>75?'wr':'cr'}">${e.he}%</div></div>`).join('')}</div></div>`;
+m.innerHTML='<h1 class="dt">Vista general · '+RL[cRole].l+'</h1><p class="ds">Red idworld en fase bootstrap. 18 tarjetas por edificio · 5 diferenciadores mundiales.</p><div class="kp">'+k.map(x=>'<div class="ki"><div class="l">'+x.l+'</div><div class="v">'+x.v+'</div><div class="dd '+x.c+'">'+x.d+'</div></div>').join('')+'</div><div class="dg"><div class="mp"><h3>Mapa operativo — San Salvador</h3><div class="hn">Click en un edificio para ver el modelo 3D y proyección de daño</div><div class="mc" id="mc"></div></div><div class="pn"><h3>Alertas activas</h3><div class="hn">Con ubicación proyectada por el modelo</div>'+AL.map(a=>'<div class="al s'+a.s+'" onclick="openEdi(\''+a.ec+'\')"><div class="wn">'+a.w+' · sev '+a.s+'</div><div class="wt">'+a.wt+'</div><div class="wo">'+a.wo+'</div></div>').join('')+'</div></div><div class="pn"><h3>Edificios</h3><div class="hn">Click para entrar al modelo 3D y análisis multi-sensor</div><div class="el">'+EDI.map(e=>'<div class="er" onclick="openEdi(\''+e.c+'\')"><div class="sl">'+sil(e,36)+'</div><div class="ii"><strong>'+e.n+'</strong><span>'+e.c+' · '+e.sy+' · NTDS '+e.nt+'</span></div><div class="st"><strong>'+e.h+'m · '+e.p+'niv</strong>'+e.y+'</div><div class="st"><strong>'+stateLabel(e.state)+'</strong>σ/σy = '+(e.stress*100).toFixed(0)+'%</div><div class="he"><div class="bar" style="width:'+e.he+'%;background:'+(e.he>85?'var(--ok)':e.he>75?'var(--wr)':'var(--ht)')+'"></div></div><div class="bd '+(e.he>85?'ok':e.he>75?'wr':'cr')+'">'+e.he+'%</div></div>').join('')+'</div></div>';
 drawMap();}
 
-function stateLabel(s){return s==='elastic'?'elástico':s==='elastic_trend'?'elástico · tendencia':s==='plastic'?'PLÁSTICO':'deformación'}
+function rEdList(m){m.innerHTML='<h1 class="dt">Edificios</h1><p class="ds">Los 4 prototipos. Cada uno con modelo 3D y proyección de deformación.</p><div class="el">'+EDI.map(e=>'<div class="er" onclick="openEdi(\''+e.c+'\')"><div class="sl">'+sil(e,48)+'</div><div class="ii"><strong>'+e.n+'</strong><span>'+e.c+' · '+e.sy+' · NTDS '+e.nt+'</span></div><div class="st"><strong>'+e.h+'m</strong>'+e.p+' niv</div><div class="st"><strong>'+e.nd.length+'</strong>nodos · '+e.y+'</div><div class="he"><div class="bar" style="width:'+e.he+'%;background:'+(e.he>85?'var(--ok)':e.he>75?'var(--wr)':'var(--ht)')+'"></div></div><div class="bd '+(e.he>85?'ok':e.he>75?'wr':'cr')+'">'+e.he+'%</div></div>').join('')+'</div>';}
 
-function rEdList(m){m.innerHTML=`<h1 class="dt">Edificios</h1><p class="ds">Los 4 prototipos. Cada uno con modelo 3D y proyección de deformación.</p>
-<div class="el">${EDI.map(e=>`<div class="er" onclick='openEdi("${e.c}")'><div class="sl">${sil(e,48)}</div><div class="ii"><strong>${e.n}</strong><span>${e.c} · ${e.sy} · NTDS ${e.nt}</span></div><div class="st"><strong>${e.h}m</strong>${e.p} niv</div><div class="st"><strong>${e.nd.length}</strong>nodos · ${e.y}</div><div class="he"><div class="bar" style="width:${e.he}%;background:${e.he>85?'var(--ok)':e.he>75?'var(--wr)':'var(--ht)'}"></div></div><div class="bd ${e.he>85?'ok':e.he>75?'wr':'cr'}">${e.he}%</div></div>`).join('')}</div>`;}
+function rAl(m){m.innerHTML='<h1 class="dt">Alertas</h1><p class="ds">Eventos con ubicación proyectada. Click para ir al modelo 3D.</p><div class="pn">'+AL.concat(AL).map(a=>'<div class="al s'+a.s+'" onclick="openEdi(\''+a.ec+'\')"><div class="wn">'+a.w+' · sev '+a.s+'</div><div class="wt">'+a.wt+'</div><div class="wo">'+a.wo+'</div></div>').join('')+'</div>';}
 
-function rAl(m){m.innerHTML=`<h1 class="dt">Alertas</h1><p class="ds">Eventos con ubicación proyectada. Click para ir al modelo 3D del edificio.</p>
-<div class="pn">${AL.concat(AL).map(a=>`<div class="al s${a.s}" onclick='openEdi("${a.ec}")'><div class="wn">${a.w} · sev ${a.s}</div><div class="wt">${a.wt}</div><div class="wo">${a.wo}</div></div>`).join('')}</div>`;}
+function rRd(m){m.innerHTML='<h1 class="dt">Red y gateways</h1><p class="ds">4 RPi 4 en malla Meshtastic 915 MHz.</p><div class="kp"><div class="ki"><div class="l">Gateways online</div><div class="v"><em>4</em>/4</div><div class="dd up">uptime 99.2%</div></div><div class="ki"><div class="l">Latencia LoRa</div><div class="v">147 ms</div><div class="dd">SF11 BW 250</div></div><div class="ki"><div class="l">Hops promedio</div><div class="v">1.4</div><div class="dd">malla redundante</div></div><div class="ki"><div class="l">Pérdida pkts</div><div class="v">0.8%</div><div class="dd up">dentro spec</div></div></div><div class="pn"><h3>Gateways RPi 4</h3><div class="hn">Meshtastic LONG_FAST · US 915</div><div class="el" style="margin-top:14px">'+['GW-SS-TPR-01|Torre Presidente|860000001|router_client|-62|92','GW-SS-PAN-01|Palacio Nacional|860000002|router|-58|98','GW-SS-CAT-01|Catedral|860000003|router|-60|97','GW-SS-TNA-01|Teatro Nacional|860000004|router_client|-63|95'].map(s=>{const p=s.split('|');return '<div class="er"><div class="sl" style="color:#22d3ee;font-family:var(--fm)">▣</div><div class="ii"><strong>'+p[1]+'</strong><span>'+p[0]+' · mesh '+p[2]+' · '+p[3]+'</span></div><div class="st"><strong>'+p[4]+' dBm</strong>RSSI</div><div class="st"><strong>'+p[5]+'%</strong>uptime 7d</div><div class="bd ok">online</div></div>';}).join('')+'</div></div>';}
 
-function rRd(m){m.innerHTML=`<h1 class="dt">Red y gateways</h1><p class="ds">4 RPi 4 en malla Meshtastic 915 MHz.</p>
-<div class="kp"><div class="ki"><div class="l">Gateways online</div><div class="v"><em>4</em>/4</div><div class="dd up">uptime 99.2%</div></div>
-<div class="ki"><div class="l">Latencia LoRa</div><div class="v">147 ms</div><div class="dd">SF11 BW 250</div></div>
-<div class="ki"><div class="l">Hops promedio</div><div class="v">1.4</div><div class="dd">malla redundante</div></div>
-<div class="ki"><div class="l">Pérdida pkts</div><div class="v">0.8%</div><div class="dd up">dentro spec</div></div></div>
-<div class="pn"><h3>Gateways RPi 4</h3><div class="hn">Meshtastic LONG_FAST · US 915</div>
-<div class="el" style="margin-top:14px">${['GW-SS-TPR-01|Torre Presidente|860000001|router_client|-62|92','GW-SS-PAN-01|Palacio Nacional|860000002|router|-58|98','GW-SS-CAT-01|Catedral|860000003|router|-60|97','GW-SS-TNA-01|Teatro Nacional|860000004|router_client|-63|95'].map(s=>{const[c,n,i,r,rs,u]=s.split('|');return `<div class="er"><div class="sl" style="color:#22d3ee;font-family:var(--fm)">▣</div><div class="ii"><strong>${n}</strong><span>${c} · mesh ${i} · ${r}</span></div><div class="st"><strong>${rs} dBm</strong>RSSI</div><div class="st"><strong>${u}%</strong>uptime 7d</div><div class="bd ok">online</div></div>`;}).join('')}</div></div>`;}
+function rSn(m){
+const dif=SENSORES.filter(s=>s.dif).length;
+const byCat={};SENSORES.forEach(s=>{(byCat[s.cat]=byCat[s.cat]||[]).push(s);});
+let html='<h1 class="dt">Catálogo de sensores</h1><p class="ds">18 variables físicas en 5 categorías. <strong style="color:#fcd34d">'+dif+' diferenciadores mundiales</strong> marcados con ★ — ninguna red sísmica convencional los integra.</p>';
+Object.keys(byCat).forEach(cat=>{
+html+='<div class="catgrp"><h3 style="color:'+CAT_COLOR[cat]+'">'+cat+' · '+CAT_NAME[cat]+' · '+byCat[cat].length+' sensores</h3>';
+byCat[cat].forEach(s=>{
+html+='<div class="sensor-row"><div class="sc" style="color:'+CAT_COLOR[cat]+'">'+s.c+'</div><div class="si"><strong>'+s.n+(s.dif?'<span class="star">★</span>':'')+'</strong><span>'+s.tec+'</span></div><div class="sm"><strong>'+s.intf+'</strong>interfaz</div><div class="sm"><strong>'+s.rate+'</strong>rate / rango</div><div class="sb '+(s.dif?'dif':'std')+'">'+(s.dif?'diferenciador':'estándar')+'</div></div>';
+});
+html+='</div>';
+});
+m.innerHTML=html;}
 
-function rEv(m){m.innerHTML=`<h1 class="dt">Eventos sísmicos</h1><p class="ds">Detecciones validadas cruzando la red idworld con MARN.</p>
-<div class="pn"><div class="el">
-<div class="er"><div class="sl" style="color:var(--c1);font-family:var(--fm)">P</div><div class="ii"><strong>Jucuapa · M 2.1 superficial</strong><span>2026-04-02 14:32:18 UTC · prof. 8 km · 82 km E</span></div><div class="st"><strong>4/4</strong>edificios</div><div class="st"><strong>PGA 0.008g</strong>max TPR</div><div class="bd ok">MARN ✓</div></div>
-<div class="er"><div class="sl" style="color:var(--wr);font-family:var(--fm)">?</div><div class="ii"><strong>Falso positivo · vibración local</strong><span>2026-03-28 11:07:45 · solo TPR01.07</span></div><div class="st"><strong>1/4</strong></div><div class="st"><strong>rechazado</strong></div><div class="bd wr">rechazado</div></div>
-<div class="er"><div class="sl" style="color:var(--c1);font-family:var(--fm)">P</div><div class="ii"><strong>San Vicente · M 3.4</strong><span>2026-03-15 22:14:03 UTC · prof. 12 km · 35 km ENE</span></div><div class="st"><strong>4/4</strong></div><div class="st"><strong>PGA 0.024g</strong></div><div class="bd ok">MARN ✓</div></div>
-</div></div>`;}
+function rTj(m){
+const total=TARJETAS.reduce((a,t)=>a+t.por_ed*t.costo,0);
+const nodos=TARJETAS.reduce((a,t)=>a+t.por_ed,0);
+let html='<h1 class="dt">Tarjetas del sistema</h1><p class="ds">Los 18 sensores se distribuyen en <strong>6 tarjetas especializadas por rol</strong>. Por edificio típico: <strong>'+nodos+' nodos</strong> · inversión hardware <strong>$'+total.toLocaleString()+'</strong>.</p>';
+TARJETAS.forEach(t=>{
+const sensNames=t.sensores.map(sc=>SENSORES.find(s=>s.c===sc)).filter(Boolean);
+const chips=sensNames.map(s=>'<span class="chip" style="border-color:'+CAT_COLOR[s.cat]+'44;color:'+CAT_COLOR[s.cat]+';background:'+CAT_COLOR[s.cat]+'11">'+s.c+(s.dif?' ★':'')+'</span>').join('');
+html+='<div class="tarjeta-row"><div class="tc">'+t.c+'</div><div class="ti"><strong>'+t.n+'</strong><span>'+t.mcu+' · '+t.rol+'</span>'+(chips?'<div class="chips">'+chips+'</div>':'<div class="chips"><span style="font-family:var(--fm);font-size:10px;color:var(--a1);font-style:italic">orquesta todos los nodos · sin sensores propios</span></div>')+'</div><div class="tm"><strong>×'+t.por_ed+'</strong>por edificio</div><div class="tm"><strong>$'+t.costo+'</strong>c/u</div><div class="tb">$'+(t.por_ed*t.costo).toLocaleString()+'</div></div>';
+});
+html+='<div style="margin-top:20px;padding:16px 20px;background:var(--ink1);border:1px solid var(--ink3);display:flex;justify-content:space-between;align-items:center"><div><div style="font-family:var(--fm);font-size:11px;color:var(--a1);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Inversión por edificio</div><div style="font-size:20px;font-weight:600;color:var(--pp)">$'+total.toLocaleString()+' hardware</div></div><div style="text-align:right"><div style="font-family:var(--fm);font-size:11px;color:var(--a1);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Piloto 50 edificios</div><div style="font-size:20px;font-weight:600;color:var(--c1)">$'+(total*50).toLocaleString()+'</div></div></div>';
+m.innerHTML=html;}
 
-function rEx(m){m.innerHTML=`<h1 class="dt">Exportar miniSEED</h1><p class="ds">FDSN-compliant. Formato NET.STA.LOC.CHA.D.YYYY.JJJ.HH.mseed</p>
-<div class="pn"><div class="hn" style="margin-bottom:16px">Últimas 24 h · 30 nodos × 3 canales × 24 h = 2,160 archivos</div>
-<div style="font-family:var(--fm);font-size:12px;color:var(--a2);line-height:2">
-<div>XX/TPR01/2026/110/XX.TPR01.00.HHZ.D.2026.110.00.mseed · 4.2 MB</div>
-<div>XX/TPR01/2026/110/XX.TPR01.00.HHN.D.2026.110.00.mseed · 4.2 MB</div>
-<div style="color:var(--a1)">… 2,158 más</div>
-<div style="margin-top:14px">stationxml/XX.TPR01.xml</div>
-<div>stationxml/XX.CAT01.xml</div></div>
-<div style="margin-top:20px"><button style="padding:12px 22px;background:var(--c2);color:var(--ink0);font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;border:none">Generar bundle SeedLink</button></div></div>`;}
+function rEv(m){m.innerHTML='<h1 class="dt">Eventos sísmicos</h1><p class="ds">Detecciones validadas cruzando la red idworld con MARN.</p><div class="pn"><div class="el"><div class="er"><div class="sl" style="color:var(--c1);font-family:var(--fm)">P</div><div class="ii"><strong>Jucuapa · M 2.1 superficial</strong><span>2026-04-02 14:32:18 UTC · prof. 8 km · 82 km E</span></div><div class="st"><strong>4/4</strong>edificios</div><div class="st"><strong>PGA 0.008g</strong>max TPR</div><div class="bd ok">MARN ✓</div></div><div class="er"><div class="sl" style="color:var(--wr);font-family:var(--fm)">?</div><div class="ii"><strong>Falso positivo · vibración local</strong><span>2026-03-28 11:07:45 · solo TPR01.07</span></div><div class="st"><strong>1/4</strong></div><div class="st"><strong>rechazado</strong></div><div class="bd wr">rechazado</div></div><div class="er"><div class="sl" style="color:var(--c1);font-family:var(--fm)">P</div><div class="ii"><strong>San Vicente · M 3.4</strong><span>2026-03-15 22:14:03 UTC · prof. 12 km · 35 km ENE</span></div><div class="st"><strong>4/4</strong></div><div class="st"><strong>PGA 0.024g</strong></div><div class="bd ok">MARN ✓</div></div></div></div>';}
+
+function rEx(m){m.innerHTML='<h1 class="dt">Exportar miniSEED</h1><p class="ds">FDSN-compliant. Formato NET.STA.LOC.CHA.D.YYYY.JJJ.HH.mseed</p><div class="pn"><div class="hn" style="margin-bottom:16px">Últimas 24 h · 30 nodos × 3 canales × 24 h = 2,160 archivos</div><div style="font-family:var(--fm);font-size:12px;color:var(--a2);line-height:2"><div>XX/TPR01/2026/110/XX.TPR01.00.HHZ.D.2026.110.00.mseed · 4.2 MB</div><div>XX/TPR01/2026/110/XX.TPR01.00.HHN.D.2026.110.00.mseed · 4.2 MB</div><div style="color:var(--a1)">… 2,158 más</div><div style="margin-top:14px">stationxml/XX.TPR01.xml</div></div><div style="margin-top:20px"><button style="padding:12px 22px;background:var(--c2);color:var(--ink0);font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;border:none">Generar bundle SeedLink</button></div></div>';}
 
 function rEdDetail(m){
 const e=EDI.find(x=>x.c===cEdi);if(!e){cEdi=null;return rn();}
-const statBadge=e.state==='plastic'?'ab cr':e.state==='elastic_trend'?'ab':'ab ok';
-const statText=e.state==='plastic'?'estado plástico · zona localizada':e.state==='elastic_trend'?'elástico con tendencia · vigilar':'elástico nominal';
-m.innerHTML=`
-<div class="ed-hero">
-<div class="tt">
-<h2>${e.n}</h2>
-<div class="cd">${e.c} · ${e.sy} · ${e.y} · NTDS ${e.nt}</div>
-<div class="mt"><span>Altura: <strong>${e.h} m</strong></span><span>Pisos: <strong>${e.p}</strong></span><span>Nodos: <strong>${e.nd.length}</strong></span><span>Periodo T₁: <strong>${e.pr} s</strong></span><span>Amortiguamiento: <strong>${e.am}%</strong></span><span>Lat/Lng: <strong>${e.lat}, ${e.lng}</strong></span></div>
-</div>
-<div class="${statBadge}">${statText}</div>
-</div>
-<div style="font-family:var(--fm);font-size:11px;color:var(--a1);margin-bottom:10px"><span onclick="cEdi=null;rn()" style="cursor:pointer;color:var(--c1)">← volver al listado</span></div>
-
-<div class="ed-grid">
-<div class="viewer3d">
-<h3>Modelo 3D · campo de deformación proyectado</h3>
-<div class="hn">Los 60 días de calibración permiten proyectar desde ${e.nd.length} nodos al volumen continuo del edificio. Color = nivel de tensión local σ/σ_yield.</div>
-<div class="vcanvas" id="vcanvas"></div>
-<div class="v-legend">
-<div class="lt">Campo de stress</div>
-<div class="gr"></div>
-<div class="gl"><span>0 · elástico</span><span>σ_y</span><span>plástico</span></div>
-<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--ink3)">
-<div class="lb" style="--cc:#22d3ee">Nodo sensor</div>
-${e.hot?'<div class="lb" style="--cc:#ef4444">Zona proyectada del daño</div>':''}
-</div>
-</div>
-<div class="v-ctrl">
-<button onclick="toggleRotate()" class="ac" id="btnRot">auto-rotar</button>
-<button onclick="toggleStress()" class="ac" id="btnStr">mostrar stress</button>
-<button onclick="toggleWire()" id="btnWir">wireframe</button>
-</div>
-</div>
-</div>
-
-<div class="sensors">
-<div class="sensor">
-<div class="sh"><h4>Vibración triaxial · HHZ/HHN/HHE</h4><span class="unit">counts 24-bit</span></div>
-<div class="vals">
-<div class="vv"><div class="x">PGA z</div><div class="n" id="pgaz">0.0042 g</div></div>
-<div class="vv"><div class="x">Freq. dom.</div><div class="n" id="freqdom">${e.pr.toFixed(2)} Hz</div></div>
-<div class="vv"><div class="x">σ 60 s</div><div class="n" id="sigma">1.8 mg</div></div>
-</div>
-<div class="ch-row"><span class="lb">HHZ</span><svg id="wz"></svg></div>
-<div class="ch-row"><span class="lb">HHN</span><svg id="wn"></svg></div>
-<div class="ch-row"><span class="lb">HHE</span><svg id="we"></svg></div>
-</div>
-
-<div class="sensor">
-<div class="sh"><h4>Desplazamiento XYZ · trayectoria reciente</h4><span class="unit">mm</span></div>
-<div class="vals">
-<div class="vv"><div class="x">dx</div><div class="n" id="dx">+0.12</div></div>
-<div class="vv"><div class="x">dy</div><div class="n" id="dy">-0.08</div></div>
-<div class="vv"><div class="x">dz</div><div class="n" id="dz">+0.34</div></div>
-</div>
-<div class="displacement"><svg class="dsp-svg" id="dsp"></svg></div>
-<div class="hn" style="margin-top:4px;margin-bottom:0">integrado por doble integración de la aceleración · últimos 30 s</div>
-</div>
-
-<div class="sensor">
-<div class="sh"><h4>Inclinación</h4><span class="unit">grados · sentido</span></div>
-<div class="vals">
-<div class="vv"><div class="x">pitch</div><div class="n" id="pit">+0.18°</div></div>
-<div class="vv"><div class="x">roll</div><div class="n" id="rol">-0.03°</div></div>
-<div class="vv"><div class="x">azimut</div><div class="n" id="azm">284°</div></div>
-</div>
-<div class="inclino">
-<div class="inc-scene"><div class="inc-plane" id="incPlane"><div class="inc-arrow" id="incArrow"></div></div></div>
-</div>
-<div class="hn" style="margin-top:0;margin-bottom:0">vector de inclinación del edificio respecto a su línea vertical</div>
-</div>
-</div>
-</div>
-
-<div class="projection">
-<h3>Proyección algorítmica</h3>
-<div class="hn">Los sensores miden en 8 puntos. El modelo proyecta al volumen continuo usando la función de transferencia aprendida en calibración.</div>
-
-<div class="proj-grid">
-<div class="proj-card">
-<div class="plb">Estado del material</div>
-<div class="pv ${e.state==='plastic'?'ht':e.state==='elastic_trend'?'wr':'ok'}">${e.state==='plastic'?'PLÁSTICO':e.state==='elastic_trend'?'elástico · tendencia':'elástico'}</div>
-<div class="psub">σ / σ_yield = ${(e.stress*100).toFixed(0)}%</div>
-</div>
-<div class="proj-card">
-<div class="plb">Zona proyectada del problema</div>
-<div class="pv">${e.hot?'<em>localizada</em>':'ninguna'}</div>
-<div class="psub">${e.hot?e.hot.lbl:'comportamiento nominal en todo el volumen'}</div>
-</div>
-<div class="proj-card">
-<div class="plb">Confianza del modelo</div>
-<div class="pv"><em>${e.hot?87:94}</em>%</div>
-<div class="psub">basado en ${Math.floor(e.nd.length*60*86400/10000)/100}M muestras de calibración</div>
-</div>
-</div>
-
-<div class="stress-bar">
-<div class="sl"><span>límite elástico de la estructura</span><strong>σ/σ_yield actual: ${(e.stress*100).toFixed(0)}%</strong></div>
-<div class="stress-track">
-<div class="stress-mark" style="left:${e.stress*100}%" data-lbl="${(e.stress*100).toFixed(0)}%"></div>
-</div>
-<div class="stress-zones"><span>elástico nominal</span><span>elástico · tendencia</span><span>σy · fluencia</span><span>plástico</span><span>deformación permanente</span></div>
-</div>
-</div>`;
-
-initThree(e);
-startSensors(e);
+const sb=e.state==='plastic'?'ab cr':e.state==='elastic_trend'?'ab':'ab ok';
+const st=e.state==='plastic'?'estado plástico · zona localizada':e.state==='elastic_trend'?'elástico con tendencia':'elástico nominal';
+m.innerHTML='<div class="ed-hero"><div class="tt"><h2>'+e.n+'</h2><div class="cd">'+e.c+' · '+e.sy+' · '+e.y+' · NTDS '+e.nt+'</div><div class="mt"><span>Altura: <strong>'+e.h+' m</strong></span><span>Pisos: <strong>'+e.p+'</strong></span><span>Nodos: <strong>'+e.nd.length+'</strong></span><span>Periodo T₁: <strong>'+e.pr+' s</strong></span><span>Amortiguamiento: <strong>'+e.am+'%</strong></span></div></div><div class="'+sb+'">'+st+'</div></div><div style="font-family:var(--fm);font-size:11px;color:var(--a1);margin-bottom:10px"><span onclick="cEdi=null;rn()" style="cursor:pointer;color:var(--c1)">← volver al listado</span></div><div class="ed-grid"><div class="viewer3d"><h3>Modelo 3D · campo de deformación proyectado</h3><div class="hn">60 días de calibración permiten proyectar desde '+e.nd.length+' nodos al volumen continuo. Color = σ/σ_yield local.</div><div class="vcanvas" id="vcanvas"></div><div class="v-legend"><div class="lt">Campo de stress</div><div class="gr"></div><div class="gl"><span>0 · elástico</span><span>σ_y</span><span>plástico</span></div><div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--ink3)"><div class="lb" style="--cc:#22d3ee">Nodo sensor</div>'+(e.hot?'<div class="lb" style="--cc:#ef4444">Zona proyectada del daño</div>':'')+'</div></div><div class="v-ctrl"><button onclick="toggleRotate()" class="ac" id="btnRot">auto-rotar</button><button onclick="toggleStress()" class="ac" id="btnStr">mostrar stress</button><button onclick="toggleWire()" id="btnWir">wireframe</button></div></div><div class="sensors"><div class="sensor"><div class="sh"><h4>Vibración triaxial · HHZ/HHN/HHE</h4><span class="unit">counts 24-bit</span></div><div class="vals"><div class="vv"><div class="x">PGA z</div><div class="n" id="pgaz">0.004 g</div></div><div class="vv"><div class="x">Freq. dom.</div><div class="n" id="freqdom">'+e.pr.toFixed(2)+' Hz</div></div><div class="vv"><div class="x">σ 60 s</div><div class="n" id="sigma">1.8 mg</div></div></div><div class="ch-row"><span class="lb">HHZ</span><svg id="wz"></svg></div><div class="ch-row"><span class="lb">HHN</span><svg id="wn"></svg></div><div class="ch-row"><span class="lb">HHE</span><svg id="we"></svg></div></div><div class="sensor"><div class="sh"><h4>Desplazamiento XYZ · trayectoria</h4><span class="unit">mm</span></div><div class="vals"><div class="vv"><div class="x">dx</div><div class="n" id="dx">+0.12</div></div><div class="vv"><div class="x">dy</div><div class="n" id="dy">-0.08</div></div><div class="vv"><div class="x">dz</div><div class="n" id="dz">+0.34</div></div></div><div class="displacement"><svg class="dsp-svg" id="dsp"></svg></div><div class="hn" style="margin-top:4px;margin-bottom:0">doble integración de la aceleración · últimos 30 s</div></div><div class="sensor"><div class="sh"><h4>Inclinación</h4><span class="unit">grados · sentido</span></div><div class="vals"><div class="vv"><div class="x">pitch</div><div class="n" id="pit">+0.18°</div></div><div class="vv"><div class="x">roll</div><div class="n" id="rol">-0.03°</div></div><div class="vv"><div class="x">azimut</div><div class="n" id="azm">284°</div></div></div><div class="inclino"><div class="inc-scene"><div class="inc-plane" id="incPlane"><div class="inc-arrow" id="incArrow"></div></div></div></div><div class="hn" style="margin-top:0;margin-bottom:0">vector de inclinación respecto a vertical</div></div></div></div><div class="projection"><h3>Proyección algorítmica</h3><div class="hn">Los sensores miden en '+e.nd.length+' puntos. El modelo proyecta al volumen continuo usando la función de transferencia aprendida.</div><div class="proj-grid"><div class="proj-card"><div class="plb">Estado del material</div><div class="pv '+(e.state==='plastic'?'ht':e.state==='elastic_trend'?'wr':'ok')+'">'+(e.state==='plastic'?'PLÁSTICO':e.state==='elastic_trend'?'elástico · tendencia':'elástico')+'</div><div class="psub">σ / σ_yield = '+(e.stress*100).toFixed(0)+'%</div></div><div class="proj-card"><div class="plb">Zona proyectada del problema</div><div class="pv">'+(e.hot?'<em>localizada</em>':'ninguna')+'</div><div class="psub">'+(e.hot?e.hot.lbl:'nominal en todo el volumen')+'</div></div><div class="proj-card"><div class="plb">Confianza del modelo</div><div class="pv"><em>'+(e.hot?87:94)+'</em>%</div><div class="psub">basado en '+(Math.floor(e.nd.length*60*86400/10000)/100)+'M muestras</div></div></div><div class="stress-bar"><div class="sl"><span>límite elástico</span><strong>σ/σ_yield actual: '+(e.stress*100).toFixed(0)+'%</strong></div><div class="stress-track"><div class="stress-mark" style="left:'+(e.stress*100)+'%" data-lbl="'+(e.stress*100).toFixed(0)+'%"></div></div><div class="stress-zones"><span>elástico nominal</span><span>tendencia</span><span>σy fluencia</span><span>plástico</span><span>deformación perm.</span></div></div></div>';
+initThree(e);startSensors(e);
 }
-
-function rEd2(m){rEdList(m)}
 
 function drawMap(){const c=document.getElementById('mc');if(!c)return;
 const lM=13.690,lX=13.705,gM=-89.24,gX=-89.185;
 const pr=(la,ln)=>({x:((ln-gM)/(gX-gM))*100,y:((lX-la)/(lX-lM))*100});
-const pins=EDI.map(e=>{const p=pr(e.lat,e.lng);const sv=e.he>85?'#22c55e':e.he>75?'#f59e0b':'#ef4444';return `<g style="cursor:pointer" onclick='openEdi("${e.c}")'>${e.he<80?`<circle cx="${p.x}%" cy="${p.y}%" r="22" fill="${sv}" opacity="0.15"><animate attributeName="r" values="14;28;14" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/></circle>`:`<circle cx="${p.x}%" cy="${p.y}%" r="16" fill="${sv}" opacity="0.12"><animate attributeName="r" values="12;20;12" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.22;0.05;0.22" dur="3s" repeatCount="indefinite"/></circle>`}<circle cx="${p.x}%" cy="${p.y}%" r="6" fill="${sv}" stroke="#0a0a0b" stroke-width="2"/><text x="${p.x}%" y="${p.y}%" dy="-14" text-anchor="middle" fill="#f4f4f5" font-family="JetBrains Mono" font-size="10" font-weight="700">${e.c.slice(-7,-4)}</text><text x="${p.x}%" y="${p.y}%" dy="24" text-anchor="middle" fill="#a1a1aa" font-family="Archivo" font-size="10">${e.n}</text></g>`;}).join('');
-const mesh=[[EDI[1],EDI[2]],[EDI[1],EDI[3]],[EDI[2],EDI[3]],[EDI[0],EDI[1]],[EDI[0],EDI[2]]].map(([a,b])=>{const pa=pr(a.lat,a.lng),pb=pr(b.lat,b.lng);return `<line x1="${pa.x}%" y1="${pa.y}%" x2="${pb.x}%" y2="${pb.y}%" stroke="#0891b2" stroke-width="1" opacity="0.4" stroke-dasharray="4 4"/>`;}).join('');
-c.innerHTML=`<svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%"><defs><pattern id="mg" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M 5 0 L 0 0 0 5" fill="none" stroke="#27272a" stroke-width="0.2"/></pattern></defs><rect width="100" height="100" fill="url(#mg)"/><text x="4" y="96" fill="#52525b" font-family="JetBrains Mono" font-size="2.5">centro histórico SS · zona Rosa</text><text x="96" y="96" text-anchor="end" fill="#52525b" font-family="JetBrains Mono" font-size="2.5">13.69°N · -89.21°W</text></svg><svg style="position:absolute;inset:0;width:100%;height:100%">${mesh}${pins}</svg>`;}
+const pins=EDI.map(e=>{const p=pr(e.lat,e.lng);const sv=e.he>85?'#22c55e':e.he>75?'#f59e0b':'#ef4444';return '<g style="cursor:pointer" onclick="openEdi(\''+e.c+'\')">'+(e.he<80?'<circle cx="'+p.x+'%" cy="'+p.y+'%" r="22" fill="'+sv+'" opacity="0.15"><animate attributeName="r" values="14;28;14" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/></circle>':'<circle cx="'+p.x+'%" cy="'+p.y+'%" r="16" fill="'+sv+'" opacity="0.12"><animate attributeName="r" values="12;20;12" dur="3s" repeatCount="indefinite"/></circle>')+'<circle cx="'+p.x+'%" cy="'+p.y+'%" r="6" fill="'+sv+'" stroke="#0a0a0b" stroke-width="2"/><text x="'+p.x+'%" y="'+p.y+'%" dy="-14" text-anchor="middle" fill="#f4f4f5" font-family="JetBrains Mono" font-size="10" font-weight="700">'+e.c.slice(-7,-4)+'</text><text x="'+p.x+'%" y="'+p.y+'%" dy="24" text-anchor="middle" fill="#a1a1aa" font-family="Archivo" font-size="10">'+e.n+'</text></g>';}).join('');
+const mesh=[[EDI[1],EDI[2]],[EDI[1],EDI[3]],[EDI[2],EDI[3]],[EDI[0],EDI[1]],[EDI[0],EDI[2]]].map(p=>{const pa=pr(p[0].lat,p[0].lng),pb=pr(p[1].lat,p[1].lng);return '<line x1="'+pa.x+'%" y1="'+pa.y+'%" x2="'+pb.x+'%" y2="'+pb.y+'%" stroke="#0891b2" stroke-width="1" opacity="0.4" stroke-dasharray="4 4"/>';}).join('');
+c.innerHTML='<svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%"><defs><pattern id="mg" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M 5 0 L 0 0 0 5" fill="none" stroke="#27272a" stroke-width="0.2"/></pattern></defs><rect width="100" height="100" fill="url(#mg)"/></svg><svg style="position:absolute;inset:0;width:100%;height:100%">'+mesh+pins+'</svg>';}
 
-function stressColor(s){const stops=[[0,0x22c55e],[0.3,0x84cc16],[0.5,0xeab308],[0.7,0xf97316],[1.0,0xef4444]];for(let i=0;i<stops.length-1;i++){if(s<=stops[i+1][0]){const t=(s-stops[i][0])/(stops[i+1][0]-stops[i][0]);const c1=stops[i][1],c2=stops[i+1][1];const r=Math.round(((c1>>16)&0xff)*(1-t)+((c2>>16)&0xff)*t);const g=Math.round(((c1>>8)&0xff)*(1-t)+((c2>>8)&0xff)*t);const b=Math.round((c1&0xff)*(1-t)+(c2&0xff)*t);return (r<<16)|(g<<8)|b;}}return 0xef4444;}
+function stressColor(s){const st=[[0,0x22c55e],[0.3,0x84cc16],[0.5,0xeab308],[0.7,0xf97316],[1.0,0xef4444]];for(let i=0;i<st.length-1;i++){if(s<=st[i+1][0]){const t=(s-st[i][0])/(st[i+1][0]-st[i][0]);const a=st[i][1],b=st[i+1][1];const r=Math.round(((a>>16)&0xff)*(1-t)+((b>>16)&0xff)*t);const g=Math.round(((a>>8)&0xff)*(1-t)+((b>>8)&0xff)*t);const c=Math.round((a&0xff)*(1-t)+(b&0xff)*t);return (r<<16)|(g<<8)|c;}}return 0xef4444;}
 
 function initThree(e){
-const cont=document.getElementById('vcanvas');if(!cont||!window.THREE)return;
-const w=cont.clientWidth,h=cont.clientHeight;
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(45,w/h,0.1,500);
-camera.position.set(e.w*2,e.w*2,e.h*1.5);
-camera.lookAt(0,0,e.h/2);
-const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(w,h);
-cont.appendChild(renderer.domElement);
-
-scene.add(new THREE.AmbientLight(0xffffff,0.4));
-const pl=new THREE.PointLight(0x22d3ee,0.6);pl.position.set(50,-50,80);scene.add(pl);
-const pl2=new THREE.PointLight(0xffffff,0.3);pl2.position.set(-80,80,40);scene.add(pl2);
-
-const grid=new THREE.GridHelper(120,20,0x27272a,0x1a1a1d);
-grid.rotation.x=Math.PI/2;grid.position.z=-0.5;scene.add(grid);
-
-const buildingGroup=new THREE.Group();
-scene.add(buildingGroup);
-
-let mainGeom;
-if(e.t==='tw'){mainGeom=new THREE.BoxGeometry(e.w,e.d,e.h,2,2,12);}
-else if(e.t==='tm'){
-const merged=new THREE.Group();
-const body=new THREE.Mesh(new THREE.BoxGeometry(e.w-10,e.d,e.h*0.5,3,2,3),new THREE.MeshPhongMaterial({color:0x0891b2,transparent:true,opacity:0.25,wireframe:false}));
-body.position.z=e.h*0.25;merged.add(body);
-const tN=new THREE.Mesh(new THREE.BoxGeometry(8,e.d*0.5,e.h,1,1,6),new THREE.MeshPhongMaterial({color:0x0891b2,transparent:true,opacity:0.25}));
-tN.position.set(-(e.w/2-4),0,e.h/2);merged.add(tN);
-const tS=tN.clone();tS.position.x=e.w/2-4;merged.add(tS);
-const dome=new THREE.Mesh(new THREE.SphereGeometry(10,16,10,0,Math.PI*2,0,Math.PI/2),new THREE.MeshPhongMaterial({color:0x0891b2,transparent:true,opacity:0.3}));
-dome.position.z=e.h*0.5;dome.rotation.x=-Math.PI/2;merged.add(dome);
-buildingGroup.add(merged);
-}
-else if(e.t==='ht'){mainGeom=new THREE.BoxGeometry(e.w,e.d,e.h,4,3,2);}
-else{mainGeom=new THREE.BoxGeometry(e.w,e.d,e.h,3,2,2);}
-
-let building=null;
-if(mainGeom){
-const mat=new THREE.MeshPhongMaterial({color:0x0891b2,transparent:true,opacity:0.22,flatShading:false});
-building=new THREE.Mesh(mainGeom,mat);
-building.position.z=e.h/2;
-buildingGroup.add(building);
-const edges=new THREE.EdgesGeometry(mainGeom);
-const line=new THREE.LineSegments(edges,new THREE.LineBasicMaterial({color:0x22d3ee,transparent:true,opacity:0.7}));
-line.position.z=e.h/2;buildingGroup.add(line);
-}
-
-const stressPoints=[];
-const basePoints=[];
-const ptCount=400;
-for(let i=0;i<ptCount;i++){
-let x,y,z;
+const c=document.getElementById('vcanvas');if(!c||!window.THREE)return;
+const w=c.clientWidth,h=c.clientHeight;
+const sc=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(45,w/h,0.1,500);
+cam.position.set(e.w*2,e.w*2,e.h*1.5);cam.lookAt(0,0,e.h/2);
+const rn2=new THREE.WebGLRenderer({antialias:true,alpha:true});
+rn2.setPixelRatio(window.devicePixelRatio);rn2.setSize(w,h);c.appendChild(rn2.domElement);
+sc.add(new THREE.AmbientLight(0xffffff,0.4));
+const pl=new THREE.PointLight(0x22d3ee,0.6);pl.position.set(50,-50,80);sc.add(pl);
+const pl2=new THREE.PointLight(0xffffff,0.3);pl2.position.set(-80,80,40);sc.add(pl2);
+const gr=new THREE.GridHelper(120,20,0x27272a,0x1a1a1d);gr.rotation.x=Math.PI/2;gr.position.z=-0.5;sc.add(gr);
+const bg=new THREE.Group();sc.add(bg);
+let mg;
+if(e.t==='tw')mg=new THREE.BoxGeometry(e.w,e.d,e.h,2,2,12);
+else if(e.t==='tm'){const m2=new THREE.Group();const b=new THREE.Mesh(new THREE.BoxGeometry(e.w-10,e.d,e.h*0.5,3,2,3),new THREE.MeshPhongMaterial({color:0x0891b2,transparent:true,opacity:0.25}));b.position.z=e.h*0.25;m2.add(b);const tN=new THREE.Mesh(new THREE.BoxGeometry(8,e.d*0.5,e.h,1,1,6),new THREE.MeshPhongMaterial({color:0x0891b2,transparent:true,opacity:0.25}));tN.position.set(-(e.w/2-4),0,e.h/2);m2.add(tN);const tS=tN.clone();tS.position.x=e.w/2-4;m2.add(tS);const dm=new THREE.Mesh(new THREE.SphereGeometry(10,16,10,0,Math.PI*2,0,Math.PI/2),new THREE.MeshPhongMaterial({color:0x0891b2,transparent:true,opacity:0.3}));dm.position.z=e.h*0.5;dm.rotation.x=-Math.PI/2;m2.add(dm);bg.add(m2);}
+else if(e.t==='ht')mg=new THREE.BoxGeometry(e.w,e.d,e.h,4,3,2);
+else mg=new THREE.BoxGeometry(e.w,e.d,e.h,3,2,2);
+let bd=null;
+if(mg){bd=new THREE.Mesh(mg,new THREE.MeshPhongMaterial({color:0x0891b2,transparent:true,opacity:0.22}));bd.position.z=e.h/2;bg.add(bd);const ed=new THREE.EdgesGeometry(mg);const ln=new THREE.LineSegments(ed,new THREE.LineBasicMaterial({color:0x22d3ee,transparent:true,opacity:0.7}));ln.position.z=e.h/2;bg.add(ln);}
+const sP=[],bP=[],N=400;
+for(let i=0;i<N;i++){let x,y,z;
 if(e.t==='tw'){x=(Math.random()-0.5)*e.w;y=(Math.random()-0.5)*e.d;z=Math.random()*e.h;}
 else if(e.t==='tm'){const r=Math.random();if(r<0.4){x=(Math.random()-0.5)*(e.w-10);y=(Math.random()-0.5)*e.d;z=Math.random()*e.h*0.5;}else if(r<0.7){x=-(e.w/2-4)+(Math.random()-0.5)*8;y=(Math.random()-0.5)*e.d*0.5;z=Math.random()*e.h;}else{x=e.w/2-4+(Math.random()-0.5)*8;y=(Math.random()-0.5)*e.d*0.5;z=Math.random()*e.h;}}
 else{x=(Math.random()-0.5)*e.w;y=(Math.random()-0.5)*e.d;z=Math.random()*e.h;}
-basePoints.push({x,y,z});
-let localStress=e.stress;
-if(e.hot){const dx=x-e.hot.x,dy=y-e.hot.y,dz=z-e.hot.z;const dist=Math.sqrt(dx*dx+dy*dy+dz*dz);const inf=Math.max(0,1-dist/(e.hot.r*2));localStress=Math.min(1,e.stress+inf*0.7);}
-stressPoints.push(localStress);
-}
-
-const ptsGeom=new THREE.BufferGeometry();
-const positions=new Float32Array(ptCount*3);
-const colors=new Float32Array(ptCount*3);
-basePoints.forEach((p,i)=>{positions[i*3]=p.x;positions[i*3+1]=p.y;positions[i*3+2]=p.z;});
-ptsGeom.setAttribute('position',new THREE.BufferAttribute(positions,3));
-ptsGeom.setAttribute('color',new THREE.BufferAttribute(colors,3));
-const ptsMat=new THREE.PointsMaterial({size:1.8,vertexColors:true,transparent:true,opacity:0.85,blending:THREE.AdditiveBlending,depthWrite:false});
-const fieldPts=new THREE.Points(ptsGeom,ptsMat);
-buildingGroup.add(fieldPts);
-
-function updateStressColors(){
-for(let i=0;i<ptCount;i++){
-const col=new THREE.Color(stressColor(stressPoints[i]));
-colors[i*3]=col.r;colors[i*3+1]=col.g;colors[i*3+2]=col.b;
-}
-ptsGeom.attributes.color.needsUpdate=true;
-}
-updateStressColors();
-
-const nodeSpheres=[];
-e.nd.forEach(n=>{
-const g=new THREE.SphereGeometry(1.5,12,12);
-const m=new THREE.MeshBasicMaterial({color:0x22d3ee});
-const s=new THREE.Mesh(g,m);
-s.position.set(n.x,n.y,n.z);
-const glow=new THREE.SphereGeometry(2.4,12,12);
-const glowMat=new THREE.MeshBasicMaterial({color:0x22d3ee,transparent:true,opacity:0.25,blending:THREE.AdditiveBlending});
-const gs=new THREE.Mesh(glow,glowMat);
-gs.position.set(n.x,n.y,n.z);
-buildingGroup.add(s);buildingGroup.add(gs);
-nodeSpheres.push({s,gs});
-});
-
-let hotMesh=null,hotPulse=null;
-if(e.hot){
-const hg=new THREE.SphereGeometry(e.hot.r,20,20);
-const hm=new THREE.MeshBasicMaterial({color:0xef4444,transparent:true,opacity:0.25,blending:THREE.AdditiveBlending});
-hotMesh=new THREE.Mesh(hg,hm);hotMesh.position.set(e.hot.x,e.hot.y,e.hot.z);
-buildingGroup.add(hotMesh);
-const coreG=new THREE.SphereGeometry(e.hot.r*0.35,16,16);
-const coreM=new THREE.MeshBasicMaterial({color:0xef4444});
-hotPulse=new THREE.Mesh(coreG,coreM);hotPulse.position.set(e.hot.x,e.hot.y,e.hot.z);
-buildingGroup.add(hotPulse);
-}
-
-buildingGroup.rotation.x=-Math.PI/2;
-buildingGroup.position.z=-e.h/2;
-
-let autoRot=true,showStress=true,wire=false;
-threeCtx={autoRot,showStress,wire,building,fieldPts,renderer,scene,camera,buildingGroup,hotMesh,hotPulse,updateStressColors,stressPoints,nodeSpheres};
-
-let dragging=false,dragX=0,dragY=0,theta=0,phi=Math.PI/4;
-const canvas=renderer.domElement;
-canvas.addEventListener('mousedown',ev=>{dragging=true;dragX=ev.clientX;dragY=ev.clientY;threeCtx.autoRot=false;document.getElementById('btnRot').classList.remove('ac');});
-window.addEventListener('mouseup',()=>dragging=false);
-window.addEventListener('mousemove',ev=>{if(!dragging)return;const dx=ev.clientX-dragX,dy=ev.clientY-dragY;theta-=dx*0.008;phi=Math.max(0.1,Math.min(Math.PI-0.1,phi+dy*0.008));dragX=ev.clientX;dragY=ev.clientY;});
-canvas.addEventListener('wheel',ev=>{ev.preventDefault();const s=ev.deltaY>0?1.08:0.92;camera.position.multiplyScalar(s);},{passive:false});
-
+bP.push({x,y,z});let ls=e.stress;
+if(e.hot){const dx=x-e.hot.x,dy=y-e.hot.y,dz=z-e.hot.z;const dist=Math.sqrt(dx*dx+dy*dy+dz*dz);const inf=Math.max(0,1-dist/(e.hot.r*2));ls=Math.min(1,e.stress+inf*0.7);}
+sP.push(ls);}
+const pg=new THREE.BufferGeometry();const ps=new Float32Array(N*3);const cs=new Float32Array(N*3);
+bP.forEach((p,i)=>{ps[i*3]=p.x;ps[i*3+1]=p.y;ps[i*3+2]=p.z;});
+pg.setAttribute('position',new THREE.BufferAttribute(ps,3));pg.setAttribute('color',new THREE.BufferAttribute(cs,3));
+const pm=new THREE.PointsMaterial({size:1.8,vertexColors:true,transparent:true,opacity:0.85,blending:THREE.AdditiveBlending,depthWrite:false});
+const fp=new THREE.Points(pg,pm);bg.add(fp);
+function uc(){for(let i=0;i<N;i++){const co=new THREE.Color(stressColor(sP[i]));cs[i*3]=co.r;cs[i*3+1]=co.g;cs[i*3+2]=co.b;}pg.attributes.color.needsUpdate=true;}
+uc();
+e.nd.forEach(n=>{const g=new THREE.SphereGeometry(1.5,12,12);const m=new THREE.MeshBasicMaterial({color:0x22d3ee});const s=new THREE.Mesh(g,m);s.position.set(n.x,n.y,n.z);const g2=new THREE.SphereGeometry(2.4,12,12);const m2=new THREE.MeshBasicMaterial({color:0x22d3ee,transparent:true,opacity:0.25,blending:THREE.AdditiveBlending});const gs=new THREE.Mesh(g2,m2);gs.position.set(n.x,n.y,n.z);bg.add(s);bg.add(gs);});
+let hm=null,hp=null;
+if(e.hot){const hg=new THREE.SphereGeometry(e.hot.r,20,20);hm=new THREE.Mesh(hg,new THREE.MeshBasicMaterial({color:0xef4444,transparent:true,opacity:0.25,blending:THREE.AdditiveBlending}));hm.position.set(e.hot.x,e.hot.y,e.hot.z);bg.add(hm);hp=new THREE.Mesh(new THREE.SphereGeometry(e.hot.r*0.35,16,16),new THREE.MeshBasicMaterial({color:0xef4444}));hp.position.set(e.hot.x,e.hot.y,e.hot.z);bg.add(hp);}
+bg.rotation.x=-Math.PI/2;bg.position.z=-e.h/2;
+threeCtx={autoRot:true,building:bd,fieldPts:fp,renderer:rn2,scene:sc,camera:cam,hot:hm,hotP:hp,uc,sP};
+let dr=false,dx=0,dy=0,th=0,ph=Math.PI/4;
+const cv=rn2.domElement;
+cv.addEventListener('mousedown',ev=>{dr=true;dx=ev.clientX;dy=ev.clientY;threeCtx.autoRot=false;const b=document.getElementById('btnRot');if(b)b.classList.remove('ac');});
+window.addEventListener('mouseup',()=>dr=false);
+window.addEventListener('mousemove',ev=>{if(!dr)return;const ddx=ev.clientX-dx,ddy=ev.clientY-dy;th-=ddx*0.008;ph=Math.max(0.1,Math.min(Math.PI-0.1,ph+ddy*0.008));dx=ev.clientX;dy=ev.clientY;});
+cv.addEventListener('wheel',ev=>{ev.preventDefault();cam.position.multiplyScalar(ev.deltaY>0?1.08:0.92);},{passive:false});
 let t=0;
-function animate(){
-if(!threeCtx)return;
-requestAnimationFrame(animate);
-t+=0.016;
-if(threeCtx.autoRot)theta+=0.003;
-const radius=Math.sqrt(camera.position.x**2+camera.position.y**2+camera.position.z**2);
-camera.position.x=radius*Math.sin(phi)*Math.cos(theta);
-camera.position.y=radius*Math.sin(phi)*Math.sin(theta);
-camera.position.z=radius*Math.cos(phi);
-camera.lookAt(0,0,0);
-if(hotMesh){hotMesh.scale.setScalar(1+Math.sin(t*2)*0.15);hotMesh.material.opacity=0.2+Math.sin(t*2)*0.1;}
-if(hotPulse){hotPulse.material.opacity=0.7+Math.sin(t*3)*0.3;}
-renderer.render(scene,camera);
+function anim(){if(!threeCtx)return;requestAnimationFrame(anim);t+=0.016;if(threeCtx.autoRot)th+=0.003;const r=Math.sqrt(cam.position.x*cam.position.x+cam.position.y*cam.position.y+cam.position.z*cam.position.z);cam.position.x=r*Math.sin(ph)*Math.cos(th);cam.position.y=r*Math.sin(ph)*Math.sin(th);cam.position.z=r*Math.cos(ph);cam.lookAt(0,0,0);if(hm){hm.scale.setScalar(1+Math.sin(t*2)*0.15);hm.material.opacity=0.2+Math.sin(t*2)*0.1;}if(hp)hp.material.opacity=0.7+Math.sin(t*3)*0.3;rn2.render(sc,cam);}
+anim();
+window.addEventListener('resize',()=>{if(!threeCtx)return;const w2=c.clientWidth,h2=c.clientHeight;cam.aspect=w2/h2;cam.updateProjectionMatrix();rn2.setSize(w2,h2);});
 }
-animate();
-window.addEventListener('resize',()=>{if(!threeCtx)return;const w2=cont.clientWidth,h2=cont.clientHeight;camera.aspect=w2/h2;camera.updateProjectionMatrix();renderer.setSize(w2,h2);});
-}
-
 function destroyThree(){if(!threeCtx)return;if(threeCtx.renderer){threeCtx.renderer.dispose();threeCtx.renderer.domElement.remove();}threeCtx=null;}
 function toggleRotate(){if(!threeCtx)return;threeCtx.autoRot=!threeCtx.autoRot;document.getElementById('btnRot').classList.toggle('ac',threeCtx.autoRot);}
-function toggleStress(){if(!threeCtx)return;threeCtx.showStress=!threeCtx.showStress;threeCtx.fieldPts.visible=threeCtx.showStress;document.getElementById('btnStr').classList.toggle('ac',threeCtx.showStress);}
-function toggleWire(){if(!threeCtx||!threeCtx.building)return;threeCtx.wire=!threeCtx.wire;threeCtx.building.material.wireframe=threeCtx.wire;threeCtx.building.material.opacity=threeCtx.wire?0.5:0.22;document.getElementById('btnWir').classList.toggle('ac',threeCtx.wire);}
+function toggleStress(){if(!threeCtx)return;threeCtx.fieldPts.visible=!threeCtx.fieldPts.visible;document.getElementById('btnStr').classList.toggle('ac',threeCtx.fieldPts.visible);}
+function toggleWire(){if(!threeCtx||!threeCtx.building)return;const w=!threeCtx.building.material.wireframe;threeCtx.building.material.wireframe=w;threeCtx.building.material.opacity=w?0.5:0.22;document.getElementById('btnWir').classList.toggle('ac',w);}
 
-const WB={z:[],n:[],e:[]},DSP={x:[],y:[],z:[]};
-let sensorTimer=null,edCtx=null;
-function startSensors(e){
-if(sensorTimer)clearInterval(sensorTimer);
-edCtx=e;
-WB.z.length=0;WB.n.length=0;WB.e.length=0;DSP.x.length=0;DSP.y.length=0;DSP.z.length=0;
-for(let i=0;i<160;i++){WB.z.push(0);WB.n.push(0);WB.e.push(0);}
-for(let i=0;i<60;i++){DSP.x.push(0);DSP.y.push(0);DSP.z.push(0);}
-let t=0;
-sensorTimer=setInterval(()=>{
-t++;
-const amp=e.state==='plastic'?8:e.state==='elastic_trend'?4:2.5;
-const spike=Math.random()<(e.state==='plastic'?0.08:e.state==='elastic_trend'?0.03:0.01)?(Math.random()-0.5)*50:0;
-['z','n','e'].forEach(ch=>{const ns=(Math.random()-0.5)*amp;WB[ch].push(ns+(ch==='z'?spike:spike*0.6));if(WB[ch].length>160)WB[ch].shift();});
-DSP.x.push(Math.sin(t*0.1)*e.stress*2+(Math.random()-0.5)*0.3);
-DSP.y.push(Math.cos(t*0.08)*e.stress*1.5+(Math.random()-0.5)*0.3);
-DSP.z.push(Math.sin(t*0.12)*e.stress*2.5+(Math.random()-0.5)*0.4);
-if(DSP.x.length>60){DSP.x.shift();DSP.y.shift();DSP.z.shift();}
-dW('wz',WB.z,'#22d3ee');dW('wn',WB.n,'#a78bfa');dW('we',WB.e,'#fb7185');
-drawDsp();
-updateInclino(t,e);
-updateSensorVals(t,e);
-if(threeCtx&&t%15===0){
-for(let i=0;i<threeCtx.stressPoints.length;i++){const vr=(Math.random()-0.5)*0.04;threeCtx.stressPoints[i]=Math.max(0,Math.min(1,threeCtx.stressPoints[i]+vr));}
-threeCtx.updateStressColors();
-}
-},80);
-}
-function dW(id,bf,co){const s=document.getElementById(id);if(!s)return;const w=s.clientWidth||300,h=28;const pt=bf.map((v,i)=>`${i===0?'M':'L'}${(i/160*w).toFixed(1)},${(h/2-v*0.5).toFixed(1)}`).join(' ');s.innerHTML=`<line x1="0" y1="${h/2}" x2="${w}" y2="${h/2}" stroke="#27272a" stroke-width="0.5"/><path d="${pt}" fill="none" stroke="${co}" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>`;}
-function drawDsp(){const s=document.getElementById('dsp');if(!s)return;const w=s.clientWidth||300,h=s.clientHeight||140;const cx=w/2,cy=h/2;const prj=(x,y,z)=>{const s2=30;return {px:cx+x*s2-y*s2*0.5,py:cy-z*s2-y*s2*0.3};};
-const axes=`<line x1="${cx-60}" y1="${cy+30}" x2="${cx+60}" y2="${cy-30}" stroke="#27272a" stroke-width="0.5"/><line x1="${cx-80}" y1="${cy}" x2="${cx+80}" y2="${cy}" stroke="#27272a" stroke-width="0.5"/><line x1="${cx}" y1="${cy-50}" x2="${cx}" y2="${cy+50}" stroke="#27272a" stroke-width="0.5"/><text x="${cx+85}" y="${cy+3}" fill="#52525b" font-family="JetBrains Mono" font-size="9">x</text><text x="${cx+62}" y="${cy-32}" fill="#52525b" font-family="JetBrains Mono" font-size="9">y</text><text x="${cx-4}" y="${cy-52}" fill="#52525b" font-family="JetBrains Mono" font-size="9">z</text>`;
-let path='';for(let i=0;i<DSP.x.length;i++){const p=prj(DSP.x[i],DSP.y[i],DSP.z[i]);path+=`${i===0?'M':'L'}${p.px.toFixed(1)},${p.py.toFixed(1)} `;}
-const last=DSP.x.length-1;const lp=prj(DSP.x[last],DSP.y[last],DSP.z[last]);
-s.innerHTML=`${axes}<path d="${path}" fill="none" stroke="#22d3ee" stroke-width="1.2" opacity="0.7"/><circle cx="${lp.px}" cy="${lp.py}" r="4" fill="#22d3ee"/><circle cx="${lp.px}" cy="${lp.py}" r="8" fill="#22d3ee" opacity="0.25"/>`;}
-function updateInclino(t,e){const pit=Math.sin(t*0.03)*e.stress*1.2+e.stress*0.8;const rol=Math.cos(t*0.025)*e.stress*0.8;const plane=document.getElementById('incPlane');const arrow=document.getElementById('incArrow');if(plane)plane.style.transform=`rotateX(${-pit*5}deg) rotateY(${rol*5}deg)`;const mag=Math.sqrt(pit*pit+rol*rol);const ang=Math.atan2(rol,pit)*180/Math.PI;if(arrow){arrow.style.transform=`translate(-50%,0) rotate(${ang}deg)`;arrow.style.height=`${30+mag*20}px`;arrow.style.background=mag>1?'#ef4444':mag>0.5?'#f59e0b':'#22d3ee';arrow.querySelector||null;if(arrow.lastElementChild===null){}}document.getElementById('pit').textContent=(pit>=0?'+':'')+pit.toFixed(2)+'°';document.getElementById('rol').textContent=(rol>=0?'+':'')+rol.toFixed(2)+'°';document.getElementById('azm').textContent=((ang+360)%360).toFixed(0)+'°';}
-function updateSensorVals(t,e){const pga=Math.abs(WB.z[WB.z.length-1])*0.001+e.stress*0.001;document.getElementById('pgaz').textContent=pga.toFixed(4)+' g';const last=DSP.x.length-1;document.getElementById('dx').textContent=(DSP.x[last]>=0?'+':'')+DSP.x[last].toFixed(2);document.getElementById('dy').textContent=(DSP.y[last]>=0?'+':'')+DSP.y[last].toFixed(2);document.getElementById('dz').textContent=(DSP.z[last]>=0?'+':'')+DSP.z[last].toFixed(2);const sum=WB.z.reduce((a,b)=>a+b*b,0);document.getElementById('sigma').textContent=(Math.sqrt(sum/WB.z.length)*0.2).toFixed(1)+' mg';}
+const WB={z:[],n:[],e:[]},DSP={x:[],y:[],z:[]};let sT=null;
+function startSensors(e){if(sT)clearInterval(sT);WB.z.length=0;WB.n.length=0;WB.e.length=0;DSP.x.length=0;DSP.y.length=0;DSP.z.length=0;for(let i=0;i<160;i++){WB.z.push(0);WB.n.push(0);WB.e.push(0);}for(let i=0;i<60;i++){DSP.x.push(0);DSP.y.push(0);DSP.z.push(0);}let t=0;
+sT=setInterval(()=>{t++;const am=e.state==='plastic'?8:e.state==='elastic_trend'?4:2.5;const sp=Math.random()<(e.state==='plastic'?0.08:e.state==='elastic_trend'?0.03:0.01)?(Math.random()-0.5)*50:0;['z','n','e'].forEach(ch=>{const ns=(Math.random()-0.5)*am;WB[ch].push(ns+(ch==='z'?sp:sp*0.6));if(WB[ch].length>160)WB[ch].shift();});DSP.x.push(Math.sin(t*0.1)*e.stress*2+(Math.random()-0.5)*0.3);DSP.y.push(Math.cos(t*0.08)*e.stress*1.5+(Math.random()-0.5)*0.3);DSP.z.push(Math.sin(t*0.12)*e.stress*2.5+(Math.random()-0.5)*0.4);if(DSP.x.length>60){DSP.x.shift();DSP.y.shift();DSP.z.shift();}dW('wz',WB.z,'#22d3ee');dW('wn',WB.n,'#a78bfa');dW('we',WB.e,'#fb7185');drawDsp();updateInc(t,e);updateVals(t,e);if(threeCtx&&t%15===0){for(let i=0;i<threeCtx.sP.length;i++){threeCtx.sP[i]=Math.max(0,Math.min(1,threeCtx.sP[i]+(Math.random()-0.5)*0.04));}threeCtx.uc();}},80);}
+function dW(id,bf,co){const s=document.getElementById(id);if(!s)return;const w=s.clientWidth||300,h=28;const pt=bf.map((v,i)=>(i===0?'M':'L')+(i/160*w).toFixed(1)+','+(h/2-v*0.5).toFixed(1)).join(' ');s.innerHTML='<line x1="0" y1="'+(h/2)+'" x2="'+w+'" y2="'+(h/2)+'" stroke="#27272a" stroke-width="0.5"/><path d="'+pt+'" fill="none" stroke="'+co+'" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>';}
+function drawDsp(){const s=document.getElementById('dsp');if(!s)return;const w=s.clientWidth||300,h=s.clientHeight||140;const cx=w/2,cy=h/2;const prj=(x,y,z)=>{const s2=30;return{px:cx+x*s2-y*s2*0.5,py:cy-z*s2-y*s2*0.3};};const ax='<line x1="'+(cx-60)+'" y1="'+(cy+30)+'" x2="'+(cx+60)+'" y2="'+(cy-30)+'" stroke="#27272a" stroke-width="0.5"/><line x1="'+(cx-80)+'" y1="'+cy+'" x2="'+(cx+80)+'" y2="'+cy+'" stroke="#27272a" stroke-width="0.5"/><line x1="'+cx+'" y1="'+(cy-50)+'" x2="'+cx+'" y2="'+(cy+50)+'" stroke="#27272a" stroke-width="0.5"/><text x="'+(cx+85)+'" y="'+(cy+3)+'" fill="#52525b" font-family="JetBrains Mono" font-size="9">x</text><text x="'+(cx+62)+'" y="'+(cy-32)+'" fill="#52525b" font-family="JetBrains Mono" font-size="9">y</text><text x="'+(cx-4)+'" y="'+(cy-52)+'" fill="#52525b" font-family="JetBrains Mono" font-size="9">z</text>';let pt='';for(let i=0;i<DSP.x.length;i++){const p=prj(DSP.x[i],DSP.y[i],DSP.z[i]);pt+=(i===0?'M':'L')+p.px.toFixed(1)+','+p.py.toFixed(1)+' ';}const l=DSP.x.length-1;const lp=prj(DSP.x[l],DSP.y[l],DSP.z[l]);s.innerHTML=ax+'<path d="'+pt+'" fill="none" stroke="#22d3ee" stroke-width="1.2" opacity="0.7"/><circle cx="'+lp.px+'" cy="'+lp.py+'" r="4" fill="#22d3ee"/><circle cx="'+lp.px+'" cy="'+lp.py+'" r="8" fill="#22d3ee" opacity="0.25"/>';}
+function updateInc(t,e){const p=Math.sin(t*0.03)*e.stress*1.2+e.stress*0.8;const r=Math.cos(t*0.025)*e.stress*0.8;const pl=document.getElementById('incPlane'),ar=document.getElementById('incArrow');if(pl)pl.style.transform='rotateX('+(-p*5)+'deg) rotateY('+(r*5)+'deg)';const mag=Math.sqrt(p*p+r*r);const an=Math.atan2(r,p)*180/Math.PI;if(ar){ar.style.transform='translate(-50%,0) rotate('+an+'deg)';ar.style.height=(30+mag*20)+'px';ar.style.background=mag>1?'#ef4444':mag>0.5?'#f59e0b':'#22d3ee';}const pe=document.getElementById('pit'),re=document.getElementById('rol'),ae=document.getElementById('azm');if(pe)pe.textContent=(p>=0?'+':'')+p.toFixed(2)+'°';if(re)re.textContent=(r>=0?'+':'')+r.toFixed(2)+'°';if(ae)ae.textContent=((an+360)%360).toFixed(0)+'°';}
+function updateVals(t,e){const pga=Math.abs(WB.z[WB.z.length-1])*0.001+e.stress*0.001;const pz=document.getElementById('pgaz');if(pz)pz.textContent=pga.toFixed(4)+' g';const l=DSP.x.length-1;const dx=document.getElementById('dx'),dy=document.getElementById('dy'),dz=document.getElementById('dz');if(dx)dx.textContent=(DSP.x[l]>=0?'+':'')+DSP.x[l].toFixed(2);if(dy)dy.textContent=(DSP.y[l]>=0?'+':'')+DSP.y[l].toFixed(2);if(dz)dz.textContent=(DSP.z[l]>=0?'+':'')+DSP.z[l].toFixed(2);const su=WB.z.reduce((a,b)=>a+b*b,0);const sg=document.getElementById('sigma');if(sg)sg.textContent=(Math.sqrt(su/WB.z.length)*0.2).toFixed(1)+' mg';}
 
 setInterval(()=>{const d=new Date();const el=document.getElementById('tm');if(el)el.textContent=d.toTimeString().slice(0,8);},1000);
 </script>
