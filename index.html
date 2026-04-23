@@ -8,19 +8,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink0:#060809;--ink1:#0b0f12;--ink2:#131a1f;--ink3:#1e2830;--ink4:#2b3943;
-  --line:#1a252e;--fg:#d8dde2;--fg-2:#8ea0ad;--fg-3:#556773;
-  --c-sismic:#22d3ee;--c-struct:#ff4d6a;--c-volcan:#ffa04d;--c-space:#fbbf24;--c-meteo:#a0f0a0;--c-bio:#6ed195;--c-pesca:#60b8dc;--c-geomag:#e879f9;
-  --ok:#4ade80;--wr:#fbbf24;--er:#f87171;
-  --fs:'Archivo',system-ui,sans-serif;--fm:'JetBrains Mono',ui-monospace,monospace;--fd:'Fraunces',Georgia,serif;
-}
+:root{--ink0:#060809;--ink1:#0b0f12;--ink2:#131a1f;--ink3:#1e2830;--line:#1a252e;--line-2:#2a3640;--fg:#e8ecf0;--fg-2:#a0afbb;--fg-3:#6b7d89;--c-sismic:#22d3ee;--c-struct:#ff4d6a;--c-volcan:#ffa04d;--c-space:#fbbf24;--c-meteo:#a0f0a0;--c-bio:#6ed195;--c-pesca:#60b8dc;--c-geomag:#e879f9;--ok:#4ade80;--wr:#fbbf24;--er:#f87171;--fs:'Archivo',system-ui,sans-serif;--fm:'JetBrains Mono',ui-monospace,monospace;--fd:'Fraunces',Georgia,serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--ink0);color:var(--fg);font-family:var(--fs);font-size:14.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
-body{background:radial-gradient(ellipse 1200px 600px at 80% -10%, rgba(34,211,238,.04), transparent 60%),radial-gradient(ellipse 900px 500px at 15% 50%, rgba(232,121,249,.025), transparent 70%),var(--ink0);background-attachment:fixed;overflow-x:hidden;}
+body{background:radial-gradient(ellipse 1200px 600px at 80% -10%,rgba(34,211,238,.05),transparent 60%),radial-gradient(ellipse 900px 500px at 15% 50%,rgba(232,121,249,.03),transparent 70%),var(--ink0);background-attachment:fixed;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-
-.topbar{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 32px;font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);background:linear-gradient(to bottom,rgba(11,15,18,.95) 60%,rgba(11,15,18,.75));backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.topbar{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 32px;font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2);background:linear-gradient(to bottom,rgba(11,15,18,.95) 60%,rgba(11,15,18,.75));backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .topbar strong{font-family:var(--fd);font-weight:500;font-style:italic;color:var(--c-sismic);font-size:17px;letter-spacing:0;text-transform:none}
 .topbar .c{text-align:center}
 .topbar .r{display:flex;gap:22px;justify-content:flex-end}
@@ -29,34 +22,32 @@ a{color:inherit;text-decoration:none}
 .live.err{color:var(--er)}
 .live.err::before{background:var(--er);box-shadow:0 0 10px var(--er)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-.subnav{position:sticky;top:47px;z-index:25;display:flex;padding:0 32px;background:rgba(11,15,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.subnav{position:sticky;top:47px;z-index:25;display:flex;padding:0 32px;background:rgba(11,15,18,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
 .subnav::-webkit-scrollbar{display:none}
-.subnav a{font-family:var(--fm);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--fg-3);padding:14px 18px;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s}
-.subnav a:hover{color:var(--fg);background:rgba(255,255,255,.02)}
-.subnav a.on{color:var(--c-sismic);border-bottom-color:var(--c-sismic)}
-
+.subnav a{font-family:var(--fm);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--fg);opacity:.75;padding:14px 18px;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s}
+.subnav a:hover{opacity:1;background:rgba(255,255,255,.03)}
+.subnav a.on{opacity:1;color:var(--c-sismic);border-bottom-color:var(--c-sismic)}
 .hero{padding:60px 32px 30px;text-align:center;border-bottom:1px solid var(--line)}
 .eyebrow{font-family:var(--fm);font-size:11px;letter-spacing:.22em;color:var(--c-sismic);margin-bottom:16px;text-transform:uppercase}
-.h1{font-family:var(--fd);font-weight:300;font-size:clamp(32px,5.5vw,64px);line-height:1;letter-spacing:-0.02em;max-width:24ch;margin:0 auto 18px}
+.h1{font-family:var(--fd);font-weight:300;font-size:clamp(32px,5.5vw,64px);line-height:1;letter-spacing:-.02em;max-width:24ch;margin:0 auto 18px;color:var(--fg)}
 .h1 em{font-style:italic;color:var(--c-sismic)}
 .sub{font-family:var(--fd);font-style:italic;font-size:17px;color:var(--fg-2);max-width:68ch;margin:0 auto 28px;line-height:1.45}
 .kpis-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);max-width:1100px;margin:0 auto}
 .kp{background:var(--ink1);padding:16px;text-align:left}
 .kp .k{font-family:var(--fm);font-size:9.5px;letter-spacing:.18em;color:var(--fg-3);text-transform:uppercase;margin-bottom:6px}
 .kp .v{font-family:var(--fd);font-weight:300;font-size:28px;line-height:1;color:var(--c-sismic)}
-.kp .v em{font-style:italic;font-size:13px;color:var(--fg-2);margin-left:4px}
 .kp .d{font-family:var(--fm);font-size:10px;color:var(--fg-3);margin-top:4px;letter-spacing:.04em}
-
-.globe-section{padding:40px 32px;border-bottom:1px solid var(--line)}
-.globe-head{max-width:1800px;margin:0 auto 24px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px}
-.globe-head h2{font-family:var(--fd);font-weight:400;font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.015em;line-height:1.1}
-.globe-head h2 em{font-style:italic;color:var(--c-sismic)}
+.view{display:none}
+.view.on{display:block}
+.section{padding:40px 32px;border-bottom:1px solid var(--line);max-width:1800px;margin:0 auto}
+.section-head{margin-bottom:24px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px}
+.section-head h2{font-family:var(--fd);font-weight:400;font-size:clamp(24px,3.2vw,34px);letter-spacing:-.015em;line-height:1.1;color:var(--fg)}
+.section-head h2 em{font-style:italic;color:var(--c-sismic)}
 .controls{display:flex;gap:8px;align-items:center}
 .refresh-btn{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;background:var(--ink1);border:1px solid var(--line);color:var(--fg-2);cursor:pointer;transition:all .2s}
 .refresh-btn:hover{background:var(--ink2);color:var(--fg);border-color:var(--c-sismic)}
 .refresh-btn.loading{color:var(--c-sismic)}
-.globe-split{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1800px;margin:0 auto}
+.globe-split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .globe-card{background:var(--ink1);border:1px solid var(--line);padding:18px;display:flex;flex-direction:column;min-height:580px}
 .globe-hdr{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--fm);font-size:11px;letter-spacing:.14em;color:var(--fg-3);text-transform:uppercase;margin-bottom:12px}
 .globe-hdr strong{font-family:var(--fd);font-style:italic;font-weight:500;color:var(--fg);font-size:15px;letter-spacing:0;text-transform:none}
@@ -64,10 +55,9 @@ a{color:inherit;text-decoration:none}
 .globe-wrap:active{cursor:grabbing}
 .globe-svg{width:100%;max-width:520px;aspect-ratio:1/1}
 .globe-hint{font-family:var(--fm);font-size:10px;color:var(--fg-3);text-align:center;letter-spacing:.1em;text-transform:uppercase;margin-top:8px}
-
 .table-card{background:var(--ink1);border:1px solid var(--line);display:flex;flex-direction:column;min-height:580px;overflow:hidden}
 .table-hdr{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
-.table-hdr strong{font-family:var(--fd);font-style:italic;font-weight:500;font-size:15px}
+.table-hdr strong{font-family:var(--fd);font-style:italic;font-weight:500;font-size:15px;color:var(--fg)}
 .table-hdr span{font-family:var(--fm);font-size:10px;letter-spacing:.12em;color:var(--fg-3);text-transform:uppercase}
 .table-wrap{flex:1;overflow:auto;max-height:520px}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
@@ -75,8 +65,7 @@ thead{position:sticky;top:0;background:var(--ink1);z-index:2}
 thead th{font-family:var(--fm);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--fg-3);text-align:left;padding:11px 12px;font-weight:500;border-bottom:1px solid var(--line)}
 tbody tr{border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s}
 tbody tr:hover{background:var(--ink2)}
-tbody tr.sel{background:rgba(34,211,238,.08);border-left:2px solid var(--c-sismic)}
-tbody td{padding:10px 12px;vertical-align:middle}
+tbody td{padding:10px 12px;vertical-align:middle;color:var(--fg)}
 td .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
 td strong{font-family:var(--fd);font-weight:500;font-style:italic;color:var(--fg)}
 td .mono{font-family:var(--fm);font-size:11px;color:var(--fg-2)}
@@ -84,14 +73,33 @@ td .mag{font-family:var(--fd);font-weight:500;font-style:italic;font-size:15px}
 td .mag.hi{color:var(--er)}
 td .mag.md{color:var(--wr)}
 td .mag.lo{color:var(--c-sismic)}
-
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--ink1);border:1px solid var(--line);padding:20px;transition:border-color .2s}
+.card:hover{border-color:var(--line-2)}
+.card.crit{border-left:3px solid var(--er)}
+.card.warn{border-left:3px solid var(--wr)}
+.card.ok{border-left:3px solid var(--ok)}
+.card-tag{font-family:var(--fm);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-3);margin-bottom:8px}
+.card-tag.crit{color:var(--er)}
+.card-tag.warn{color:var(--wr)}
+.card-tag.ok{color:var(--ok)}
+.card h3{font-family:var(--fd);font-weight:400;font-size:22px;line-height:1.15;margin-bottom:6px;color:var(--fg)}
+.card h3 em{font-style:italic;color:var(--c-sismic)}
+.card .meta{font-family:var(--fm);font-size:10.5px;color:var(--fg-3);margin-bottom:14px;letter-spacing:.04em}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.card-grid .item .k{font-family:var(--fm);font-size:9px;letter-spacing:.15em;color:var(--fg-3);text-transform:uppercase;margin-bottom:3px}
+.card-grid .item .v{font-family:var(--fd);font-weight:500;font-style:italic;font-size:16px;color:var(--fg)}
+.card-grid .item .v.hi{color:var(--er)}
+.card-grid .item .v.md{color:var(--wr)}
+.card-grid .item .v.lo{color:var(--ok)}
+.card-desc{font-family:var(--fd);font-style:italic;font-size:14px;color:var(--fg-2);line-height:1.5}
 .modal-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.85);backdrop-filter:blur(6px);z-index:100;display:none;align-items:center;justify-content:center;padding:16px}
 .modal-bg.on{display:flex}
 .modal{background:var(--ink1);border:1px solid var(--line);max-width:580px;width:100%;padding:28px;position:relative;max-height:90vh;overflow-y:auto}
 .modal-close{position:absolute;top:12px;right:14px;font-size:22px;color:var(--fg-3);cursor:pointer;background:none;border:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center}
 .modal-close:hover{color:var(--fg)}
 .modal-eyebrow{font-family:var(--fm);font-size:10px;letter-spacing:.2em;color:var(--c-sismic);text-transform:uppercase;margin-bottom:10px}
-.modal h3{font-family:var(--fd);font-weight:400;font-size:24px;line-height:1.2;margin-bottom:6px;padding-right:30px}
+.modal h3{font-family:var(--fd);font-weight:400;font-size:24px;line-height:1.2;margin-bottom:6px;padding-right:30px;color:var(--fg)}
 .modal h3 em{font-style:italic;color:var(--c-sismic)}
 .modal .meta-line{font-family:var(--fm);font-size:11px;color:var(--fg-3);margin-bottom:18px;letter-spacing:.06em;word-break:break-all}
 .modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px;padding:16px;background:var(--ink2);border:1px solid var(--line)}
@@ -105,21 +113,9 @@ td .mag.lo{color:var(--c-sismic)}
 .modal .btn strong{font-family:var(--fd);font-weight:500;font-style:italic;font-size:14px;display:block;color:var(--fg)}
 .modal .btn span{font-family:var(--fm);font-size:10.5px;color:var(--fg-3);letter-spacing:.04em}
 .modal .btn:hover strong{color:var(--c-sismic)}
-
 footer{padding:40px 32px 28px;text-align:center;font-family:var(--fm);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-3);border-top:1px solid var(--line)}
 footer em{color:var(--c-sismic);font-family:var(--fd);font-style:italic;font-weight:300;font-size:14px;letter-spacing:0;text-transform:none}
-
-@media (max-width:900px){
-  .globe-split{grid-template-columns:1fr}
-  .kpis-row{grid-template-columns:repeat(2,1fr)}
-  .modal-grid{grid-template-columns:1fr}
-  .topbar{padding:12px 16px;font-size:10px}
-  .topbar .c{display:none}
-  .subnav{padding:0 16px;top:41px}
-  .subnav a{padding:12px 12px;font-size:10px}
-  .hero{padding:40px 20px 24px}
-  .globe-section{padding:30px 16px}
-}
+@media(max-width:900px){.globe-split{grid-template-columns:1fr}.kpis-row{grid-template-columns:repeat(2,1fr)}.modal-grid{grid-template-columns:1fr}.topbar{padding:12px 16px;font-size:10px}.topbar .c{display:none}.subnav{padding:0 16px;top:41px}.subnav a{padding:12px 12px;font-size:10px}.hero{padding:40px 20px 24px}.section{padding:30px 16px}.card-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -128,69 +124,95 @@ footer em{color:var(--c-sismic);font-family:var(--fd);font-style:italic;font-wei
   <div class="c"><span class="live" id="live-status">Conectando a Supabase…</span></div>
   <div class="r"><span id="eventos-count">—</span><span id="update-time">—</span></div>
 </header>
-
-<nav class="subnav">
-  <a href="/" class="on">Mando Central</a>
-  <a href="/estructural">Estructural</a>
-  <a href="/sismico">Sísmico</a>
-  <a href="/volcanico">Volcánico</a>
-  <a href="/sensores">Tecnología sensora</a>
-  <a href="/fuentes">Fuentes de datos</a>
+<nav class="subnav" id="subnav">
+  <a href="?" data-f="" class="on">Mando Central</a>
+  <a href="?filter=estructural" data-f="estructural">Estructural</a>
+  <a href="?filter=sismic" data-f="sismic">Sísmico</a>
+  <a href="?filter=volcan" data-f="volcan">Volcánico</a>
+  <a href="?filter=sensores" data-f="sensores">Tecnología sensora</a>
+  <a href="?filter=fuentes" data-f="fuentes">Fuentes de datos</a>
 </nav>
-
 <section class="hero">
-  <div class="eyebrow">Sismos SV · M≥4 · últimos 90 días · datos en vivo</div>
-  <h1 class="h1">Monitor <em>planetario</em> en tiempo real</h1>
-  <p class="sub">20 sismos activos en zona SV. Datos integrados de USGS-NEIC + EMSC (INET, MARN, EMSC, UNA, NEIC). Click en cualquier sismo del globo para abrir el mapa oficial de MARN, Google Maps satélite o la ficha USGS.</p>
-  <div class="kpis-row">
-    <div class="kp"><div class="k">Sismos activos</div><div class="v" id="kp-total">—</div><div class="d">M≥4 · 90 días</div></div>
-    <div class="kp"><div class="k">Magnitud máx</div><div class="v" id="kp-max-mag">—</div><div class="d">ventana activa</div></div>
-    <div class="kp"><div class="k">Más reciente</div><div class="v" id="kp-ultimo" style="font-size:18px">—</div><div class="d">hora local SV</div></div>
-    <div class="kp"><div class="k">Fuentes</div><div class="v" id="kp-fuentes">—</div><div class="d">integradas</div></div>
-  </div>
+  <div class="eyebrow" id="hero-eye">Sismos SV · M≥4 · datos en vivo</div>
+  <h1 class="h1" id="hero-title">Monitor <em>planetario</em> en tiempo real</h1>
+  <p class="sub" id="hero-sub">Datos integrados de USGS-NEIC + EMSC. Click en cualquier sismo del globo para abrir MARN, Google Maps o USGS.</p>
+  <div class="kpis-row" id="kpis-row"></div>
 </section>
-
-<section class="globe-section">
-  <div class="globe-head">
-    <h2>Globo <em>3D rotable</em> · click para detalle</h2>
-    <div class="controls">
-      <button class="refresh-btn" id="refresh-btn">⟳ Actualizar</button>
+<div class="view on" id="view-default">
+  <section class="section">
+    <div class="section-head">
+      <h2>Globo <em>3D rotable</em> · sismos en vivo</h2>
+      <div class="controls"><button class="refresh-btn" id="refresh-btn">⟳ Actualizar</button></div>
     </div>
-  </div>
-  <div class="globe-split">
-    <div class="globe-card">
-      <div class="globe-hdr"><strong>Globo orthographic</strong><span id="point-count">— visibles</span></div>
-      <div class="globe-wrap" id="globe-wrap">
-        <svg class="globe-svg" id="globe" viewBox="-280 -280 560 560" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="earthGrad" cx="35%" cy="35%" r="65%">
-              <stop offset="0" stop-color="#133548"/>
-              <stop offset=".55" stop-color="#0a1e2b"/>
-              <stop offset="1" stop-color="#05131c"/>
-            </radialGradient>
-          </defs>
-          <circle cx="0" cy="0" r="265" fill="none" stroke="#1a252e" stroke-width="1"/>
-          <circle cx="0" cy="0" r="225" fill="none" stroke="#1a252e" stroke-width="1" stroke-dasharray="2 3"/>
-          <circle cx="0" cy="0" r="200" fill="url(#earthGrad)"/>
-          <g id="grid-group"></g>
-          <g id="land-group"></g>
-          <g id="markers-group"></g>
-        </svg>
+    <div class="globe-split">
+      <div class="globe-card">
+        <div class="globe-hdr"><strong>Globo orthographic</strong><span id="point-count">— visibles</span></div>
+        <div class="globe-wrap" id="globe-wrap">
+          <svg class="globe-svg" id="globe" viewBox="-280 -280 560 560" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="earthGrad" cx="32%" cy="30%" r="75%">
+                <stop offset="0" stop-color="#2e6b8c"/>
+                <stop offset=".55" stop-color="#1c4868"/>
+                <stop offset=".88" stop-color="#0e2840"/>
+                <stop offset="1" stop-color="#081b2e"/>
+              </radialGradient>
+              <radialGradient id="atmGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#22d3ee" stop-opacity="0"/>
+                <stop offset=".85" stop-color="#22d3ee" stop-opacity="0"/>
+                <stop offset=".93" stop-color="#22d3ee" stop-opacity=".25"/>
+                <stop offset=".97" stop-color="#22d3ee" stop-opacity=".12"/>
+                <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="0" cy="0" r="232" fill="url(#atmGrad)"/>
+            <circle cx="0" cy="0" r="200" fill="url(#earthGrad)" stroke="#22d3ee" stroke-width="1.2" opacity="0.98"/>
+            <g id="grid-group"></g>
+            <g id="land-group"></g>
+            <g id="markers-group"></g>
+          </svg>
+        </div>
+        <div class="globe-hint">Arrastrá para rotar · click en un punto para abrir</div>
       </div>
-      <div class="globe-hint">Arrastrá para rotar · click en un punto para abrir</div>
+      <div class="table-card">
+        <div class="table-hdr"><strong>Sismos recientes</strong><span id="table-sub">—</span></div>
+        <div class="table-wrap"><table><thead><tr><th style="width:22px"></th><th>Mag</th><th>Cuando (SV)</th><th>Lugar</th><th>Prof</th></tr></thead><tbody id="events-body"><tr><td colspan="5" style="padding:32px;text-align:center;color:var(--fg-3);font-family:var(--fm);font-size:11px;letter-spacing:.15em;text-transform:uppercase">Cargando…</td></tr></tbody></table></div>
+      </div>
     </div>
+  </section>
+</div>
+<div class="view" id="view-estructural">
+  <section class="section">
+    <div class="section-head"><h2>4 <em>edificios piloto</em> · San Salvador</h2></div>
+    <div class="grid-cards" id="edificios-cards"></div>
+  </section>
+</div>
+<div class="view" id="view-sismic">
+  <section class="section">
+    <div class="section-head"><h2>Actividad <em>sísmica</em> SV · integrada</h2><div class="controls"><button class="refresh-btn" id="refresh-btn-sis">⟳ Actualizar</button></div></div>
     <div class="table-card">
-      <div class="table-hdr"><strong>Tabla de eventos</strong><span id="table-sub">—</span></div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th style="width:22px"></th><th>Mag</th><th>Cuando (SV)</th><th>Lugar</th><th>Prof</th></tr></thead>
-          <tbody id="events-body"><tr><td colspan="5" style="padding:32px;text-align:center;color:var(--fg-3);font-family:var(--fm);font-size:11px;letter-spacing:.15em;text-transform:uppercase">Cargando…</td></tr></tbody>
-        </table>
-      </div>
+      <div class="table-hdr"><strong>Todos los eventos</strong><span id="table-sub-sis">—</span></div>
+      <div class="table-wrap" style="max-height:none"><table><thead><tr><th style="width:22px"></th><th>Mag</th><th>Cuando (SV)</th><th>Lugar</th><th>Prof</th><th>Fuente</th></tr></thead><tbody id="events-body-sis"><tr><td colspan="6" style="padding:32px;text-align:center;color:var(--fg-3)">Cargando…</td></tr></tbody></table></div>
     </div>
-  </div>
-</section>
-
+  </section>
+</div>
+<div class="view" id="view-volcan">
+  <section class="section">
+    <div class="section-head"><h2>7 <em>volcanes</em> SV · nivel de alerta</h2></div>
+    <div class="grid-cards" id="volcanes-cards"></div>
+  </section>
+</div>
+<div class="view" id="view-sensores">
+  <section class="section">
+    <div class="section-head"><h2>Red de <em>sensores MOVE</em> · 18 por edificio</h2></div>
+    <div class="grid-cards" id="sensores-cards"></div>
+  </section>
+</div>
+<div class="view" id="view-fuentes">
+  <section class="section">
+    <div class="section-head"><h2>14 <em>fuentes</em> integradas</h2></div>
+    <div class="grid-cards" id="fuentes-cards"></div>
+  </section>
+</div>
 <div class="modal-bg" id="modal">
   <div class="modal">
     <button class="modal-close" id="modal-close">×</button>
@@ -201,248 +223,82 @@ footer em{color:var(--c-sismic);font-family:var(--fd);font-style:italic;font-wei
       <div class="item"><div class="k">Magnitud</div><div class="v" id="m-mag">—</div></div>
       <div class="item"><div class="k">Profundidad</div><div class="v" id="m-prof">—</div></div>
       <div class="item"><div class="k">Lat / Lon</div><div class="v" id="m-coords" style="font-size:14px">—</div></div>
-      <div class="item"><div class="k">Tipo magnitud</div><div class="v" id="m-tipo">—</div></div>
+      <div class="item"><div class="k">Tipo</div><div class="v" id="m-tipo">—</div></div>
     </div>
     <div class="actions">
-      <a class="btn" id="btn-marn" target="_blank" rel="noopener">
-        <div><strong>Ver sismograma MARN</strong><span>srt.ambiente.gob.sv · red sísmica nacional SV</span></div>
-        <span class="arrow">→</span>
-      </a>
-      <a class="btn" id="btn-maps" target="_blank" rel="noopener">
-        <div><strong>Ver en Google Maps satélite</strong><span>zoom directo al epicentro</span></div>
-        <span class="arrow">→</span>
-      </a>
-      <a class="btn" id="btn-usgs" target="_blank" rel="noopener">
-        <div><strong>Ficha oficial USGS</strong><span>earthquake.usgs.gov · evento completo</span></div>
-        <span class="arrow">→</span>
-      </a>
-      <button class="btn" id="btn-copy">
-        <div><strong>Copiar coordenadas</strong><span id="copy-status">al portapapeles</span></div>
-        <span class="arrow">⧉</span>
-      </button>
+      <a class="btn" id="btn-marn" target="_blank" rel="noopener"><div><strong>Ver sismograma MARN</strong><span>srt.ambiente.gob.sv · red sísmica SV</span></div><span class="arrow">→</span></a>
+      <a class="btn" id="btn-maps" target="_blank" rel="noopener"><div><strong>Ver en Google Maps satélite</strong><span>zoom al epicentro</span></div><span class="arrow">→</span></a>
+      <a class="btn" id="btn-usgs" target="_blank" rel="noopener"><div><strong>Ficha oficial USGS</strong><span>earthquake.usgs.gov</span></div><span class="arrow">→</span></a>
+      <button class="btn" id="btn-copy"><div><strong>Copiar coordenadas</strong><span id="copy-status">al portapapeles</span></div><span class="arrow">⧉</span></button>
     </div>
   </div>
 </div>
-
 <footer><em>Alejandría Steam Labs</em> · idworld · MOVE mando central · 2026</footer>
 
 <script>
-const API_URL = 'https://zsmlntktqisiclzaxoky.supabase.co/functions/v1/api-sismos-recientes?limit=20&min_mag=4.0&dias=90';
-let SISMOS = [];
-let rotLon = 89.2, rotLat = 13.5;   // centrado en SV al arrancar
-const R = 200;
+const API_URL='https://zsmlntktqisiclzaxoky.supabase.co/functions/v1/api-sismos-recientes?limit=20&min_mag=4.0&dias=90';
+const API_URL_ALL='https://zsmlntktqisiclzaxoky.supabase.co/functions/v1/api-sismos-recientes?limit=80&min_mag=3.5&dias=30';
+let SISMOS=[];
+let rotLon=89.2,rotLat=13.5;
+const R=200;
+const CONTINENTS=[[[70,-130],[65,-80],[50,-55],[30,-80],[18,-100],[32,-115],[55,-130],[70,-130]],[[18,-98],[14,-90],[12,-85],[8,-78],[7,-76],[14,-87],[18,-98]],[[10,-80],[5,-78],[0,-50],[-23,-40],[-55,-68],[-40,-73],[-20,-72],[0,-78],[10,-80]],[[70,-5],[65,40],[35,40],[37,15],[40,0],[55,-8],[70,-5]],[[35,-6],[30,30],[15,40],[-8,40],[-35,20],[-35,18],[-20,12],[5,-8],[22,-15],[35,-6]],[[75,40],[70,180],[45,140],[20,110],[10,100],[20,80],[30,55],[45,40],[75,40]],[[-10,120],[-15,145],[-28,153],[-38,146],[-35,115],[-20,115],[-10,120]]];
+const EDIFICIOS=[{nombre:'Torre Presidente',subtipo:'Comercial oficinas hotel',pisos:20,altura:'100m',anio:2018,estado:'NORMAL',nodos:18,sigma:0.42,tag:'ok',desc:'Torre comercial moderna de 20 pisos. Sistema estructural: pórticos reforzados con muros de corte. Período fundamental 2.3s.'},{nombre:'Catedral Metropolitana',subtipo:'Templo religioso patrimonio',pisos:3,altura:'50m',anio:1999,estado:'NORMAL',nodos:18,sigma:0.51,tag:'ok',desc:'Cripta alberga al beato Óscar Romero. Estructura reconstruida tras incendio 1951. Alto valor patrimonial y espiritual.'},{nombre:'Palacio Nacional',subtipo:'Patrimonio monumento nacional',pisos:4,altura:'22m',anio:1911,estado:'CRÍTICO',nodos:18,sigma:0.68,tag:'crit',desc:'Monumento nacional de 1911. σ/σy en 0.68 indica esfuerzo crítico cercano al límite de fluencia. Prioridad máxima de monitoreo.'},{nombre:'Teatro Nacional',subtipo:'Teatro patrimonio cultural',pisos:4,altura:'17m',anio:1917,estado:'NORMAL',nodos:18,sigma:0.38,tag:'ok',desc:'Teatro Nacional de San Salvador, 1917. El más antiguo de Centroamérica aún en funcionamiento. Mampostería con refuerzo patrimonial.'}];
+const VOLCANES=[{nombre:'Santa Ana (Ilamatepec)',tipo:'Estratovolcán',elev:'2381 m',estado:'Activo',alerta:'VERDE',ultima:'oct 2005 (VEI 3)',tag:'ok',desc:'Volcán más alto de SV. Red Raspberry Shake desplegada oct-2023 por CERI Memphis (7 RS + 3 RB + 1 Güralp + 1 Nanometrics MARN). Lago cratérico.'},{nombre:'San Vicente (Chichontepec)',tipo:'Estratovolcán',elev:'2182 m',estado:'Dormido',alerta:'VERDE',ultima:'histórica',tag:'ok',desc:'Segundo volcán más alto. Sin erupciones en tiempos históricos. Monitoreo de rutina.'},{nombre:'San Miguel (Chaparrastique)',tipo:'Estratovolcán',elev:'2130 m',estado:'Activo',alerta:'AMARILLO',ultima:'29 dic 2013 (VEI 2)',tag:'warn',desc:'Nivel de alerta AMARILLO activo. Última erupción diciembre 2013. Monitoreo MARN intensificado por actividad fumarólica continua.'},{nombre:'Izalco',tipo:'Estratovolcán',elev:'1950 m',estado:'Activo',alerta:'VERDE',ultima:'oct 1966 (VEI 2)',tag:'ok',desc:'El "Faro del Pacífico". En constante erupción 1770-1958. Inactivo desde 1966 pero considerado activo.'},{nombre:'San Salvador (Quezaltepec)',tipo:'Estratovolcán',elev:'1893 m',estado:'Activo',alerta:'VERDE',ultima:'7 jun 1917 (VEI 2)',tag:'ok',desc:'Volcán más cercano a la capital (12 km). Erupción 1917 causó terremoto M6.7. Población expuesta: 2.5M.'},{nombre:'Conchagua',tipo:'Estratovolcán',elev:'1250 m',estado:'Dormido',alerta:'VERDE',ultima:'holoceno',tag:'ok',desc:'Sin erupciones históricas conocidas. Golfo de Fonseca, frontera con Honduras y Nicaragua.'},{nombre:'Caldera de Ilopango',tipo:'Caldera',elev:'450 m',estado:'Activo',alerta:'VERDE',ultima:'1880 (VEI 4)',tag:'ok',desc:'Gran caldera con lago. Evento TBJ 431 DC fue uno de los más explosivos del Holoceno (VEI 6). Última erupción de islas en 1880.'}];
+const SENSORES=[{tipo:'SEISMOS',cant:8,stack:'ESP32-S3 + SM-24 geófono + ADS1256 24-bit ADC + ADXL355 MEMS',desc:'Nodos sísmicos con geofónica + acelerometría MEMS. Detectan P-wave y S-wave a 200 Hz. Streaming intra-edificio vía ESP-NOW 2.4 GHz.',color:'sismic'},{tipo:'ATLAS',cant:2,stack:'GPS-RTK u-blox ZED-F9P dual-frequency',desc:'GPS de grado geodésico con corrección RTK. Precisión centímetro para detectar desplazamientos lentos post-sísmicos.',color:'struct'},{tipo:'TREMOR',cant:4,stack:'IMU 9-DoF + acelerometría triaxial',desc:'Acelerarómetros ambientales 24/7. Caracterización modal del edificio y tracking de cambios de rigidez.',color:'sismic'},{tipo:'FIBRA',cant:1,stack:'Fibra óptica DAS (Distributed Acoustic Sensing)',desc:'Strain distribuido a lo largo de la estructura. Un solo cable cubre todo el edificio con miles de puntos de medición.',color:'struct'},{tipo:'TERRA',cant:2,stack:'Multi-sensor suelo + temperatura + humedad',desc:'Condiciones ambientales en cimientos y terreno adyacente. Correlaciona respuesta estructural con factores externos.',color:'meteo'},{tipo:'HUB',cant:1,stack:'Raspberry Pi 4 8GB + NVMe SSD + LTE + WiFi + LoRa 915 MHz',desc:'Gateway de edificio. Recibe ESP-NOW de SEISMOS/TREMOR, hace edge detection STA/LTA, y envia aggregates vía LoRa al mesh gateway-gateway.',color:'geomag'}];
+const FUENTES=[{nombre:'USGS-NEIC',tipo:'Sísmico global',freq:'10 min',formato:'QuakeML',estado:'ok',desc:'National Earthquake Information Center. 37 sismos en zona SV integrados.'},{nombre:'EMSC FDSN',tipo:'Sísmico global',freq:'10 min',formato:'FDSN QuakeML',estado:'ok',desc:'European-Med Seismological Centre. 5 autoridades: INET Costa Rica, MARN SV, EMSC, UNA Nicaragua, NEIC. 218 sismos.'},{nombre:'NOAA SWPC',tipo:'Clima espacial',freq:'15 min',formato:'JSON',estado:'ok',desc:'Space Weather Prediction Center. Flares solares clase C/M/X, Kp index, auroras.'},{nombre:'NHC Atlantic',tipo:'Huracanes',freq:'6 hrs',formato:'JSON',estado:'ok',desc:'National Hurricane Center. Tracks activos y pronóstico cuenca Atlántico + Pacífico oriental.'},{nombre:'Open-Meteo',tipo:'Meteo',freq:'1 hr',formato:'JSON',estado:'ok',desc:'Pronóstico horario para 5 puntos críticos SV. 240 observaciones activas.'},{nombre:'USDM Drought',tipo:'Sequía',freq:'semanal',formato:'GeoJSON',estado:'ok',desc:'US Drought Monitor (extendido a Centroamérica). Índice D0-D4 de sequía agrícola.'},{nombre:'WMM World Magnetic',tipo:'Geomag',freq:'diaria',formato:'COEF',estado:'ok',desc:'NOAA/NGA World Magnetic Model 2025. Declinación -0.47° en SV, F=36086 nT.'},{nombre:'IERS Earth Rotation',tipo:'Geofísica',freq:'diaria',formato:'TXT',estado:'ok',desc:'International Earth Rotation Service. LOD, UT1-UTC, polar motion. Base de correcciones GNSS.'},{nombre:'Raspberry Shake',tipo:'Sísmico local',freq:'100 Hz',formato:'miniSEED',estado:'pend',desc:'Red Santa Ana: 7 Raspberry Shake + 3 Boom + 1 Güralp. SeedLink público. Contacto Dr. Goebel CERI Memphis.'},{nombre:'MARN SNET',tipo:'Sísmico oficial',freq:'real-time',formato:'JSON',estado:'pend',desc:'Red sísmica nacional SV. Pendiente acuerdo formal para SeedLink institucional.'},{nombre:'GCMT Harvard',tipo:'Mec. focales',freq:'mensual',formato:'CMT',estado:'pend',desc:'Global CMT Project. Tensores de momento y mecanismos focales de sismos M≥5.'},{nombre:'MIROVA',tipo:'Térmico volcánico',freq:'diaria',formato:'HotSpot',estado:'pend',desc:'Middle InfraRed Observation of Volcanic Activity. Detección anomalías térmicas satelitales.'},{nombre:'NOAA NWS Alerts',tipo:'Meteo alertas',freq:'real-time',formato:'GeoJSON',estado:'pend',desc:'National Weather Service alertas (tormentas, tornados, inundaciones). Adaptable a SV vía MARN.'},{nombre:'GBIF',tipo:'Biodiversidad',freq:'mensual',formato:'JSON',estado:'pend',desc:'Global Biodiversity Information Facility. Tracking de especies en monitoreo estructural (nidos, murciélagos).'}];
+const HERO_CFG={
+  '':{eye:'Sismos SV · M≥4 · últimos 90 días · datos en vivo',title:'Monitor <em>planetario</em> en tiempo real',sub:'Datos integrados de USGS-NEIC + EMSC (INET, MARN, EMSC, UNA, NEIC). Click en cualquier sismo del globo para abrir el mapa oficial de MARN, Google Maps satélite o la ficha USGS.'},
+  estructural:{eye:'Salud estructural · 4 edificios piloto · San Salvador',title:'Monitoreo <em>estructural</em> continuo',sub:'Torre Presidente, Catedral Metropolitana, Palacio Nacional y Teatro Nacional. 30 nodos MOVE totales. Palacio Nacional en estado crítico con σ/σy en 0.68.'},
+  sismic:{eye:'Red sísmica SV · integración multifuente',title:'Actividad <em>sísmica</em> ampliada',sub:'Tabla extendida de sismos M≥3.5 en ventana de 30 días. USGS-NEIC + EMSC 5 autoridades. Alertas push automáticas M≥4 vía Telegram y Google Home.'},
+  volcan:{eye:'Volcanes SV · 7 edificios volcánicos · 5 activos',title:'Monitoreo <em>volcánico</em> integrado',sub:'Chaparrastique en nivel AMARILLO activo. Red Raspberry Shake Santa Ana coordinada con CERI Memphis. Datos de Smithsonian GVP.'},
+  sensores:{eye:'Tecnología sensora MOVE · 6 tipos · 18 por edificio',title:'Red de <em>sensores</em> desplegados',sub:'Stack técnico completo: ESP32-S3, geófonos SM-24, ADCs 24-bit, MEMS ADXL355, GPS-RTK, fibra DAS, y gateway Raspberry Pi 4 con NVMe SSD.'},
+  fuentes:{eye:'Fuentes de datos · 14 integradas · 5 pipelines',title:'Integración de <em>fuentes</em> globales',sub:'Pipelines cron cada 10 min. Formatos FDSN, QuakeML, GeoJSON, miniSEED. 8 operativas + 6 pendientes (Raspberry Shake SeedLink, MARN SNET, GCMT, MIROVA, NWS Alerts, GBIF).'}
+};
+const gridGroup=document.getElementById('grid-group');
+const landGroup=document.getElementById('land-group');
+const markersGroup=document.getElementById('markers-group');
+function project(lat,lon){const phi=lat*Math.PI/180;const lam=(lon+rotLon)*Math.PI/180;const phi0=rotLat*Math.PI/180;const cosc=Math.sin(phi0)*Math.sin(phi)+Math.cos(phi0)*Math.cos(phi)*Math.cos(lam);const x=R*Math.cos(phi)*Math.sin(lam);const y=R*(Math.cos(phi0)*Math.sin(phi)-Math.sin(phi0)*Math.cos(phi)*Math.cos(lam));return{x,y:-y,visible:cosc>0}}
+function drawGrid(){let h='';for(let lat=-60;lat<=60;lat+=30){const pts=[];for(let lon=-180;lon<=180;lon+=5){const p=project(lat,lon);if(p.visible)pts.push(p.x.toFixed(2)+','+p.y.toFixed(2));else if(pts.length){h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#4db8ce" stroke-width=".45" opacity=".35"/>';pts.length=0}}if(pts.length)h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#4db8ce" stroke-width=".45" opacity=".35"/>'}for(let lon=-180;lon<180;lon+=30){const pts=[];for(let lat=-85;lat<=85;lat+=3){const p=project(lat,lon);if(p.visible)pts.push(p.x.toFixed(2)+','+p.y.toFixed(2));else if(pts.length){h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#4db8ce" stroke-width=".45" opacity=".35"/>';pts.length=0}}if(pts.length)h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#4db8ce" stroke-width=".45" opacity=".35"/>'}gridGroup.innerHTML=h}
+function drawLand(){let h='';for(const poly of CONTINENTS){const pts=[];for(const[lat,lon]of poly){const p=project(lat,lon);if(p.visible)pts.push(p.x.toFixed(2)+','+p.y.toFixed(2))}if(pts.length>=3)h+='<polygon points="'+pts.join(' ')+'" fill="#2f6058" opacity=".72" stroke="#4a8a7e" stroke-width=".6"/>'}landGroup.innerHTML=h}
+function drawMarkers(){let h='';let visible=0;for(let i=0;i<SISMOS.length;i++){const s=SISMOS[i];const p=project(parseFloat(s.lat),parseFloat(s.lon));if(!p.visible)continue;visible++;const mag=parseFloat(s.magnitud);const color=mag>=5?'#f87171':mag>=4.5?'#fbbf24':'#22d3ee';const size=Math.max(3,Math.min(10,(mag-3)*3));h+='<g class="mk" data-idx="'+i+'" style="cursor:pointer"><circle cx="'+p.x.toFixed(2)+'" cy="'+p.y.toFixed(2)+'" r="'+(size*2.5)+'" fill="'+color+'" opacity="0"><animate attributeName="r" values="'+size+';'+(size*3)+';'+size+'" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".55;0;.55" dur="2.5s" repeatCount="indefinite"/></circle><circle cx="'+p.x.toFixed(2)+'" cy="'+p.y.toFixed(2)+'" r="'+size+'" fill="'+color+'" stroke="#fff" stroke-width="1.2"/></g>'}markersGroup.innerHTML=h;document.getElementById('point-count').textContent=visible+' visibles';document.querySelectorAll('.mk').forEach(el=>{el.addEventListener('click',e=>{e.stopPropagation();openModal(parseInt(el.dataset.idx))})})}
+function redrawAll(){drawGrid();drawLand();drawMarkers()}
+const gw=document.getElementById('globe-wrap');
+let dragging=false,sX=0,sY=0,sLon=0,sLat=0;
+gw.addEventListener('mousedown',e=>{dragging=true;sX=e.clientX;sY=e.clientY;sLon=rotLon;sLat=rotLat});
+window.addEventListener('mouseup',()=>{dragging=false});
+window.addEventListener('mousemove',e=>{if(!dragging)return;rotLon=sLon-(e.clientX-sX)*0.4;rotLat=Math.max(-80,Math.min(80,sLat+(e.clientY-sY)*0.4));redrawAll()});
+gw.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;dragging=true;sX=e.touches[0].clientX;sY=e.touches[0].clientY;sLon=rotLon;sLat=rotLat});
+gw.addEventListener('touchmove',e=>{if(!dragging||e.touches.length!==1)return;e.preventDefault();rotLon=sLon-(e.touches[0].clientX-sX)*0.4;rotLat=Math.max(-80,Math.min(80,sLat+(e.touches[0].clientY-sY)*0.4));redrawAll()},{passive:false});
+gw.addEventListener('touchend',()=>{dragging=false});
 
-const CONTINENTS = [
-  [[70,-130],[65,-80],[50,-55],[30,-80],[18,-100],[32,-115],[55,-130],[70,-130]],
-  [[18,-98],[14,-90],[12,-85],[8,-78],[7,-76],[14,-87],[18,-98]],
-  [[10,-80],[5,-78],[0,-50],[-23,-40],[-55,-68],[-40,-73],[-20,-72],[0,-78],[10,-80]],
-  [[70,-5],[65,40],[35,40],[37,15],[40,0],[55,-8],[70,-5]],
-  [[35,-6],[30,30],[15,40],[-8,40],[-35,20],[-35,18],[-20,12],[5,-8],[22,-15],[35,-6]],
-  [[75,40],[70,180],[45,140],[20,110],[10,100],[20,80],[30,55],[45,40],[75,40]],
-  [[-10,120],[-15,145],[-28,153],[-38,146],[-35,115],[-20,115],[-10,120]]
-];
-const gridGroup = document.getElementById('grid-group');
-const landGroup = document.getElementById('land-group');
-const markersGroup = document.getElementById('markers-group');
+function renderTable(tbodyId,subId,sismos,showFuente){const tbody=document.getElementById(tbodyId);if(sismos.length===0){tbody.innerHTML='<tr><td colspan="'+(showFuente?6:5)+'" style="padding:32px;text-align:center;color:var(--fg-3)">Sin sismos</td></tr>';return}let h='';for(let i=0;i<sismos.length;i++){const s=sismos[i];const mag=parseFloat(s.magnitud);const magClass=mag>=5?'hi':mag>=4.5?'md':'lo';const color=mag>=5?'#f87171':mag>=4.5?'#fbbf24':'#22d3ee';const f=new Date(s.timestamp_origen);const fSV=new Date(f.getTime()-6*3600*1000);const cuando=fSV.toISOString().substring(5,16).replace('T',' ');const prof=Math.round(parseFloat(s.profundidad_km)||0);const lugar=(s.lugar||'—').replace(/\b(of|in)\b/gi,'').replace(/\s+/g,' ').trim();h+='<tr data-idx="'+i+'"><td><span class="dot" style="background:'+color+'"></span></td><td><span class="mag '+magClass+'">M '+mag.toFixed(1)+'</span></td><td><span class="mono">'+cuando+'</span></td><td><strong>'+lugar+'</strong></td><td><span class="mono">'+prof+' km</span></td>'+(showFuente?'<td><span class="mono" style="font-size:10px">'+(s.fuente_externa||'—')+'</span></td>':'')+'</tr>'}tbody.innerHTML=h;document.getElementById(subId).textContent=sismos.length+' eventos';tbody.querySelectorAll('tr[data-idx]').forEach(tr=>{tr.addEventListener('click',()=>{SISMOS=sismos;openModal(parseInt(tr.dataset.idx))})})}
 
-function project(lat, lon) {
-  const phi = lat*Math.PI/180;
-  const lam = (lon+rotLon)*Math.PI/180;
-  const phi0 = rotLat*Math.PI/180;
-  const cosc = Math.sin(phi0)*Math.sin(phi) + Math.cos(phi0)*Math.cos(phi)*Math.cos(lam);
-  const x = R*Math.cos(phi)*Math.sin(lam);
-  const y = R*(Math.cos(phi0)*Math.sin(phi) - Math.sin(phi0)*Math.cos(phi)*Math.cos(lam));
-  return { x, y: -y, visible: cosc > 0 };
-}
-function drawGrid() {
-  let h = '';
-  for (let lat=-60; lat<=60; lat+=30) {
-    const pts=[];
-    for (let lon=-180; lon<=180; lon+=5) {
-      const p=project(lat,lon);
-      if (p.visible) pts.push(p.x.toFixed(2)+','+p.y.toFixed(2));
-      else if (pts.length){h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#22d3ee" stroke-width=".4" opacity=".22"/>';pts.length=0;}
-    }
-    if (pts.length) h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#22d3ee" stroke-width=".4" opacity=".22"/>';
-  }
-  for (let lon=-180; lon<180; lon+=30) {
-    const pts=[];
-    for (let lat=-85; lat<=85; lat+=3) {
-      const p=project(lat,lon);
-      if (p.visible) pts.push(p.x.toFixed(2)+','+p.y.toFixed(2));
-      else if (pts.length){h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#22d3ee" stroke-width=".4" opacity=".22"/>';pts.length=0;}
-    }
-    if (pts.length) h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#22d3ee" stroke-width=".4" opacity=".22"/>';
-  }
-  gridGroup.innerHTML = h;
-}
-function drawLand() {
-  let h = '';
-  for (const poly of CONTINENTS) {
-    const pts = [];
-    for (const [lat,lon] of poly) {
-      const p=project(lat,lon);
-      if (p.visible) pts.push(p.x.toFixed(2)+','+p.y.toFixed(2));
-    }
-    if (pts.length >= 3) h += '<polygon points="'+pts.join(' ')+'" fill="#1a3d3a" opacity=".5" stroke="#2b5048" stroke-width=".5"/>';
-  }
-  landGroup.innerHTML = h;
-}
-function drawMarkers() {
-  let h = '';
-  let visible = 0;
-  for (let i=0; i<SISMOS.length; i++) {
-    const s = SISMOS[i];
-    const p = project(parseFloat(s.lat), parseFloat(s.lon));
-    if (!p.visible) continue;
-    visible++;
-    const mag = parseFloat(s.magnitud);
-    const color = mag >= 5 ? '#f87171' : mag >= 4.5 ? '#fbbf24' : '#22d3ee';
-    const size = Math.max(3, Math.min(10, (mag-3)*3));
-    h += '<g class="mk" data-idx="'+i+'" style="cursor:pointer">'
-      + '<circle cx="'+p.x.toFixed(2)+'" cy="'+p.y.toFixed(2)+'" r="'+(size*2.5)+'" fill="'+color+'" opacity="0">'
-      + '<animate attributeName="r" values="'+size+';'+(size*3)+';'+size+'" dur="2.5s" repeatCount="indefinite"/>'
-      + '<animate attributeName="opacity" values=".55;0;.55" dur="2.5s" repeatCount="indefinite"/>'
-      + '</circle>'
-      + '<circle cx="'+p.x.toFixed(2)+'" cy="'+p.y.toFixed(2)+'" r="'+size+'" fill="'+color+'" stroke="#fff" stroke-width="1"/>'
-      + '</g>';
-  }
-  markersGroup.innerHTML = h;
-  document.getElementById('point-count').textContent = visible + ' visibles';
-  document.querySelectorAll('.mk').forEach(el => {
-    el.addEventListener('click', e => { e.stopPropagation(); openModal(parseInt(el.dataset.idx)); });
-  });
-}
-function redrawAll() { drawGrid(); drawLand(); drawMarkers(); }
+function openModal(idx){const s=SISMOS[idx];if(!s)return;const mag=parseFloat(s.magnitud);const lat=parseFloat(s.lat),lon=parseFloat(s.lon);const f=new Date(s.timestamp_origen);const fSV=new Date(f.getTime()-6*3600*1000);const fechaStr=fSV.toISOString().replace('T',' ').substring(0,16)+' hora SV';document.getElementById('modal-src').textContent=(s.fuente_externa||'USGS-NEIC')+' · '+(s.severidad||'MENOR');document.getElementById('modal-title').innerHTML='Sismo <em>M '+mag.toFixed(1)+'</em> · '+(s.lugar||'zona SV');document.getElementById('modal-meta').textContent=fechaStr+' · '+s.evento_id;document.getElementById('m-mag').textContent='M '+mag.toFixed(1);document.getElementById('m-prof').textContent=Math.round(parseFloat(s.profundidad_km)||0)+' km';document.getElementById('m-coords').textContent=lat.toFixed(3)+'°, '+lon.toFixed(3)+'°';document.getElementById('m-tipo').textContent=s.magnitud_tipo||'—';document.getElementById('btn-marn').href='https://srt.ambiente.gob.sv/web/sismograma/gmap.php';document.getElementById('btn-maps').href='https://www.google.com/maps/@'+lat+','+lon+',9z/data=!3m1!1e3';if(s.evento_id&&s.evento_id.startsWith('USGS-')){document.getElementById('btn-usgs').href='https://earthquake.usgs.gov/earthquakes/eventpage/'+s.evento_id.replace('USGS-','')+'/executive';document.getElementById('btn-usgs').querySelector('strong').textContent='Ficha oficial USGS'}else{document.getElementById('btn-usgs').href='https://earthquake.usgs.gov/earthquakes/map/?extent='+(lat-2)+','+(lon-2)+','+(lat+2)+','+(lon+2);document.getElementById('btn-usgs').querySelector('strong').textContent='Buscar en USGS';document.getElementById('btn-usgs').querySelector('span').textContent='mapa USGS alrededor del epicentro'}document.getElementById('btn-copy').onclick=()=>{navigator.clipboard.writeText(lat.toFixed(4)+', '+lon.toFixed(4)).then(()=>{document.getElementById('copy-status').textContent='✓ Copiado';setTimeout(()=>{document.getElementById('copy-status').textContent='al portapapeles'},2000)})};document.getElementById('modal').classList.add('on');rotLon=-lon;rotLat=lat;redrawAll()}
+document.getElementById('modal-close').addEventListener('click',()=>document.getElementById('modal').classList.remove('on'));
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')document.getElementById('modal').classList.remove('on')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modal').classList.remove('on')});
 
-const gw = document.getElementById('globe-wrap');
-let dragging=false, sX=0, sY=0, sLon=0, sLat=0;
-gw.addEventListener('mousedown', e=>{dragging=true;sX=e.clientX;sY=e.clientY;sLon=rotLon;sLat=rotLat;});
-window.addEventListener('mouseup', ()=>{dragging=false;});
-window.addEventListener('mousemove', e=>{
-  if (!dragging) return;
-  rotLon = sLon - (e.clientX-sX)*0.4;
-  rotLat = Math.max(-80, Math.min(80, sLat + (e.clientY-sY)*0.4));
-  redrawAll();
-});
-gw.addEventListener('touchstart', e=>{if(e.touches.length!==1)return;dragging=true;sX=e.touches[0].clientX;sY=e.touches[0].clientY;sLon=rotLon;sLat=rotLat;});
-gw.addEventListener('touchmove', e=>{
-  if(!dragging||e.touches.length!==1)return;
-  e.preventDefault();
-  rotLon = sLon - (e.touches[0].clientX-sX)*0.4;
-  rotLat = Math.max(-80, Math.min(80, sLat + (e.touches[0].clientY-sY)*0.4));
-  redrawAll();
-}, {passive:false});
-gw.addEventListener('touchend', ()=>{dragging=false;});
+function renderKPIs(f){const r=document.getElementById('kpis-row');const max=SISMOS.length>0?Math.max(...SISMOS.map(s=>parseFloat(s.magnitud))):0;const last=SISMOS.length>0?new Date(new Date(SISMOS[0].timestamp_origen).getTime()-6*3600*1000).toISOString().substring(5,16).replace('T',' '):'—';const fuentes=SISMOS.length>0?[...new Set(SISMOS.map(s=>s.fuente_externa))].length:0;let kpis=[];if(f===''){kpis=[['Sismos activos',SISMOS.length,'M≥4 · 90 días'],['Magnitud máx',max>0?'M '+max.toFixed(1):'—','ventana activa'],['Más reciente',last,'hora local SV'],['Fuentes',fuentes,'integradas']]}else if(f==='estructural'){kpis=[['Edificios piloto','4','San Salvador'],['Nodos MOVE','72','18 por edificio'],['Estado crítico','1','Palacio Nacional'],['Sistema','Real-time','streaming 200 Hz']]}else if(f==='sismic'){kpis=[['Total eventos',SISMOS.length,'M≥3.5 · 30d'],['Fuentes integradas','5','USGS + EMSC autoridades'],['Alertas push','Activas','M≥4 · Telegram + TTS'],['Magnitud máx',max>0?'M '+max.toFixed(1):'—','ventana activa']]}else if(f==='volcan'){kpis=[['Volcanes SV','7','monitoreados'],['Activos','5','nivel verde/amarillo'],['Alerta amarilla','1','Chaparrastique'],['Red RS Santa Ana','11','dispositivos']]}else if(f==='sensores'){kpis=[['Tipos de sensor','6','por edificio'],['Sensores/edif','18','multi-modal'],['Sampling','200 Hz','raw streaming'],['Comms','3 capas','ESP-NOW/LoRa/LTE']]}else if(f==='fuentes'){kpis=[['Integradas','14','pipelines activos'],['Operativas','8','cron 10 min'],['Pendientes','6','roadmap Q2-Q3'],['Formatos','FDSN+','QuakeML, miniSEED, GeoJSON']]}r.innerHTML=kpis.map(k=>'<div class="kp"><div class="k">'+k[0]+'</div><div class="v" style="font-size:'+(String(k[1]).length>6?'18px':'28px')+'">'+k[1]+'</div><div class="d">'+k[2]+'</div></div>').join('')}
 
-function renderTable() {
-  const tbody = document.getElementById('events-body');
-  if (SISMOS.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" style="padding:32px;text-align:center;color:var(--fg-3)">Sin sismos M≥4 en los últimos 90 días</td></tr>';
-    return;
-  }
-  let h = '';
-  for (let i=0; i<SISMOS.length; i++) {
-    const s = SISMOS[i];
-    const mag = parseFloat(s.magnitud);
-    const magClass = mag >= 5 ? 'hi' : mag >= 4.5 ? 'md' : 'lo';
-    const color = mag >= 5 ? '#f87171' : mag >= 4.5 ? '#fbbf24' : '#22d3ee';
-    const f = new Date(s.timestamp_origen);
-    const fSV = new Date(f.getTime() - 6*3600*1000);
-    const cuando = fSV.toISOString().substring(5,16).replace('T', ' ');
-    const prof = Math.round(parseFloat(s.profundidad_km) || 0);
-    const lugar = (s.lugar||'—').replace(/\b(of|in)\b/gi, '').replace(/\s+/g,' ').trim();
-    h += '<tr data-idx="'+i+'"><td><span class="dot" style="background:'+color+'"></span></td>'
-      + '<td><span class="mag '+magClass+'">M '+mag.toFixed(1)+'</span></td>'
-      + '<td><span class="mono">'+cuando+'</span></td>'
-      + '<td><strong>'+lugar+'</strong></td>'
-      + '<td><span class="mono">'+prof+' km</span></td></tr>';
-  }
-  tbody.innerHTML = h;
-  document.getElementById('table-sub').textContent = SISMOS.length + ' eventos · orden desc';
-  document.querySelectorAll('tbody tr[data-idx]').forEach(tr => {
-    tr.addEventListener('click', () => openModal(parseInt(tr.dataset.idx)));
-  });
-}
+function renderEdificios(){document.getElementById('edificios-cards').innerHTML=EDIFICIOS.map(e=>{const tag=e.tag==='crit'?'CRÍTICO':e.tag==='warn'?'ATENCIÓN':'NORMAL';const sigmaClass=e.sigma>=0.65?'hi':e.sigma>=0.55?'md':'lo';return '<div class="card '+e.tag+'"><div class="card-tag '+e.tag+'">● '+tag+' · '+e.subtipo+'</div><h3>'+e.nombre+'</h3><div class="meta">'+e.anio+' · '+e.pisos+' pisos · '+e.altura+'</div><p class="card-desc">'+e.desc+'</p><div class="card-grid"><div class="item"><div class="k">σ / σy</div><div class="v '+sigmaClass+'">'+e.sigma.toFixed(2)+'</div></div><div class="item"><div class="k">Nodos MOVE</div><div class="v">'+e.nodos+'</div></div></div></div>'}).join('')}
+function renderVolcanes(){document.getElementById('volcanes-cards').innerHTML=VOLCANES.map(v=>{return '<div class="card '+v.tag+'"><div class="card-tag '+v.tag+'">● '+v.alerta+' · '+v.estado+'</div><h3>'+v.nombre+'</h3><div class="meta">'+v.tipo+' · '+v.elev+'</div><p class="card-desc">'+v.desc+'</p><div class="card-grid"><div class="item"><div class="k">Última erupción</div><div class="v" style="font-size:13px">'+v.ultima+'</div></div><div class="item"><div class="k">Alerta</div><div class="v '+(v.tag==='warn'?'md':'lo')+'">'+v.alerta+'</div></div></div></div>'}).join('')}
+function renderSensores(){document.getElementById('sensores-cards').innerHTML=SENSORES.map(s=>{return '<div class="card" style="border-left:3px solid var(--c-'+s.color+')"><div class="card-tag" style="color:var(--c-'+s.color+')">● '+s.cant+'× por edificio</div><h3>'+s.tipo+'</h3><div class="meta">'+s.stack+'</div><p class="card-desc">'+s.desc+'</p></div>'}).join('')}
+function renderFuentes(){document.getElementById('fuentes-cards').innerHTML=FUENTES.map(f=>{const tag=f.estado==='ok'?'ok':'warn';const tagText=f.estado==='ok'?'OPERATIVA':'PENDIENTE';return '<div class="card '+tag+'"><div class="card-tag '+tag+'">● '+tagText+' · '+f.tipo+'</div><h3>'+f.nombre+'</h3><div class="meta">'+f.freq+' · '+f.formato+'</div><p class="card-desc">'+f.desc+'</p></div>'}).join('')}
 
-function openModal(idx) {
-  const s = SISMOS[idx];
-  if (!s) return;
-  const mag = parseFloat(s.magnitud);
-  const lat = parseFloat(s.lat), lon = parseFloat(s.lon);
-  const f = new Date(s.timestamp_origen);
-  const fSV = new Date(f.getTime() - 6*3600*1000);
-  const fechaStr = fSV.toISOString().replace('T',' ').substring(0,16) + ' hora SV';
+async function fetchSismos(apiUrl,storeGlobal){const btn=document.getElementById('refresh-btn');if(btn&&storeGlobal){btn.classList.add('loading');btn.textContent='⟳ Cargando…'}try{const r=await fetch(apiUrl,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const data=await r.json();const sismos=data.sismos||[];if(storeGlobal){SISMOS=sismos;document.getElementById('eventos-count').textContent=sismos.length+' sismos';document.getElementById('update-time').textContent=new Date().toISOString().substring(11,19)+' UTC';document.getElementById('live-status').textContent='Conectado a Supabase';document.getElementById('live-status').classList.remove('err');renderKPIs(currentFilter);renderTable('events-body','table-sub',sismos,false);redrawAll();if(btn){btn.classList.remove('loading');btn.textContent='⟳ Actualizar'}}return sismos}catch(e){if(btn){btn.classList.remove('loading');btn.textContent='⚠ Error · reintentar'}document.getElementById('live-status').textContent='Error de conexión';document.getElementById('live-status').classList.add('err');console.error(e);return[]}}
+async function loadSismicExtended(){const btn=document.getElementById('refresh-btn-sis');if(btn){btn.classList.add('loading');btn.textContent='⟳ Cargando…'}const sismos=await fetchSismos(API_URL_ALL,false);renderTable('events-body-sis','table-sub-sis',sismos,true);if(btn){btn.classList.remove('loading');btn.textContent='⟳ Actualizar'}}
 
-  document.getElementById('modal-src').textContent = (s.fuente_externa || 'USGS-NEIC') + ' · ' + (s.severidad||'MENOR');
-  document.getElementById('modal-title').innerHTML = 'Sismo <em>M '+mag.toFixed(1)+'</em> · ' + (s.lugar || 'zona SV');
-  document.getElementById('modal-meta').textContent = fechaStr + ' · ' + s.evento_id;
-  document.getElementById('m-mag').textContent = 'M '+mag.toFixed(1);
-  document.getElementById('m-prof').textContent = Math.round(parseFloat(s.profundidad_km)||0) + ' km';
-  document.getElementById('m-coords').textContent = lat.toFixed(3)+'°, '+lon.toFixed(3)+'°';
-  document.getElementById('m-tipo').textContent = s.magnitud_tipo || '—';
+let currentFilter='';
+function applyFilter(){const f=new URLSearchParams(location.search).get('filter')||'';currentFilter=f;document.querySelectorAll('.subnav a').forEach(a=>a.classList.toggle('on',a.dataset.f===f));document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));const vId='view-'+(f||'default');const el=document.getElementById(vId);if(el)el.classList.add('on');else document.getElementById('view-default').classList.add('on');const cfg=HERO_CFG[f]||HERO_CFG[''];document.getElementById('hero-eye').textContent=cfg.eye;document.getElementById('hero-title').innerHTML=cfg.title;document.getElementById('hero-sub').textContent=cfg.sub;document.title='MOVE · '+cfg.title.replace(/<[^>]+>/g,'');renderKPIs(f);if(f==='estructural')renderEdificios();else if(f==='volcan')renderVolcanes();else if(f==='sensores')renderSensores();else if(f==='fuentes')renderFuentes();else if(f==='sismic')loadSismicExtended()}
 
-  document.getElementById('btn-marn').href = 'https://srt.ambiente.gob.sv/web/sismograma/gmap.php';
-  document.getElementById('btn-maps').href = 'https://www.google.com/maps/@'+lat+','+lon+',9z/data=!3m1!1e3';
-  if (s.evento_id && s.evento_id.startsWith('USGS-')) {
-    document.getElementById('btn-usgs').href = 'https://earthquake.usgs.gov/earthquakes/eventpage/' + s.evento_id.replace('USGS-', '') + '/executive';
-    document.getElementById('btn-usgs').style.display = 'flex';
-  } else {
-    document.getElementById('btn-usgs').href = 'https://earthquake.usgs.gov/earthquakes/map/?extent=' + (lat-2) + ',' + (lon-2) + ',' + (lat+2) + ',' + (lon+2);
-    document.getElementById('btn-usgs').style.display = 'flex';
-    document.getElementById('btn-usgs').querySelector('strong').textContent = 'Buscar en USGS';
-    document.getElementById('btn-usgs').querySelector('span').textContent = 'mapa USGS alrededor del epicentro';
-  }
-  document.getElementById('btn-copy').onclick = () => {
-    navigator.clipboard.writeText(lat.toFixed(4)+', '+lon.toFixed(4)).then(()=>{
-      document.getElementById('copy-status').textContent = '✓ Copiado';
-      setTimeout(()=>{ document.getElementById('copy-status').textContent = 'al portapapeles'; }, 2000);
-    });
-  };
-
-  document.getElementById('modal').classList.add('on');
-  rotLon = -lon; rotLat = lat; redrawAll();
-}
-document.getElementById('modal-close').addEventListener('click', () => document.getElementById('modal').classList.remove('on'));
-document.getElementById('modal').addEventListener('click', e => { if (e.target.id === 'modal') document.getElementById('modal').classList.remove('on'); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('modal').classList.remove('on'); });
-
-async function fetchSismos() {
-  const btn = document.getElementById('refresh-btn');
-  btn.classList.add('loading'); btn.textContent = '⟳ Cargando…';
-  try {
-    const r = await fetch(API_URL, { cache: 'no-store' });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const data = await r.json();
-    SISMOS = data.sismos || [];
-    document.getElementById('eventos-count').textContent = SISMOS.length + ' sismos';
-    document.getElementById('kp-total').textContent = SISMOS.length;
-    document.getElementById('kp-fuentes').textContent = [...new Set(SISMOS.map(s=>s.fuente_externa))].length;
-    if (SISMOS.length > 0) {
-      const maxMag = Math.max(...SISMOS.map(s => parseFloat(s.magnitud)));
-      document.getElementById('kp-max-mag').innerHTML = 'M '+maxMag.toFixed(1);
-      const ultimoF = new Date(SISMOS[0].timestamp_origen);
-      const ultimoSV = new Date(ultimoF.getTime() - 6*3600*1000);
-      document.getElementById('kp-ultimo').textContent = ultimoSV.toISOString().substring(5,16).replace('T',' ');
-    }
-    document.getElementById('update-time').textContent = new Date().toISOString().substring(11,19) + ' UTC';
-    document.getElementById('live-status').textContent = 'Conectado a Supabase';
-    document.getElementById('live-status').classList.remove('err');
-    renderTable();
-    redrawAll();
-    btn.classList.remove('loading'); btn.textContent = '⟳ Actualizar';
-  } catch (e) {
-    btn.classList.remove('loading'); btn.textContent = '⚠ Error · reintentar';
-    document.getElementById('live-status').textContent = 'Error de conexión';
-    document.getElementById('live-status').classList.add('err');
-    console.error(e);
-  }
-}
-document.getElementById('refresh-btn').addEventListener('click', fetchSismos);
-
+window.addEventListener('popstate',applyFilter);
+document.querySelectorAll('.subnav a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const f=a.dataset.f;history.pushState(null,'',f?'?filter='+f:'?');applyFilter()})});
+if(document.getElementById('refresh-btn'))document.getElementById('refresh-btn').addEventListener('click',()=>fetchSismos(API_URL,true));
+if(document.getElementById('refresh-btn-sis'))document.getElementById('refresh-btn-sis').addEventListener('click',loadSismicExtended);
 redrawAll();
-fetchSismos();
-setInterval(fetchSismos, 60000);
+fetchSismos(API_URL,true);
+applyFilter();
+setInterval(()=>fetchSismos(API_URL,true),60000);
 </script>
 </body>
 </html>
