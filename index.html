@@ -292,7 +292,7 @@ footer em{color:var(--c-sismic);font-family:var(--fd);font-style:italic;font-wei
   </div>
 </div>
 
-<footer><em>Alejandría Steam Labs</em> · idworld · MOVE mando central v12 · 2026</footer>
+<footer><em>Alejandría Steam Labs</em> · idworld · MOVE mando central v13 · 2026 · siluetas reales por edificio</footer>
 
 <script>
 const SUPA='https://zsmlntktqisiclzaxoky.supabase.co/functions/v1';
@@ -309,11 +309,11 @@ const R_BASE=200;
 const CONT=[[[70,-130],[65,-80],[50,-55],[30,-80],[18,-100],[32,-115],[55,-130],[70,-130]],[[18,-98],[14,-90],[12,-85],[8,-78],[7,-76],[14,-87],[18,-98]],[[10,-80],[5,-78],[0,-50],[-23,-40],[-55,-68],[-40,-73],[-20,-72],[0,-78],[10,-80]],[[70,-5],[65,40],[35,40],[37,15],[40,0],[55,-8],[70,-5]],[[35,-6],[30,30],[15,40],[-8,40],[-35,20],[-35,18],[-20,12],[5,-8],[22,-15],[35,-6]],[[75,40],[70,180],[45,140],[20,110],[10,100],[20,80],[30,55],[45,40],[75,40]],[[-10,120],[-15,145],[-28,153],[-38,146],[-35,115],[-20,115],[-10,120]]];
 
 const NODOS_POR_EDIFICIO={
-'SV-SS-TPR-001':[{sc:'TPR-01',piso:-3,loc:'Cimiento N',x:0,y:-15,z:0,est:'ok'},{sc:'TPR-02',piso:-3,loc:'Cimiento S',x:0,y:15,z:0,est:'ok'},{sc:'TPR-03',piso:5,loc:'P5 S',x:0,y:15,z:25,est:'ok'},{sc:'TPR-04',piso:5,loc:'P5 N',x:0,y:-15,z:25,est:'ok'},{sc:'TPR-05',piso:12,loc:'P12 C',x:0,y:0,z:60,est:'ok'},{sc:'TPR-06',piso:18,loc:'P18 N',x:0,y:-15,z:90,est:'warn'},{sc:'TPR-07',piso:20,loc:'Azotea S',x:0,y:15,z:100,est:'warn'},{sc:'TPR-08',piso:20,loc:'Azotea N',x:0,y:-15,z:100,est:'warn'}],
-'SV-SS-CAT-001':[{sc:'CAT-01',piso:0,loc:'Cim Central',x:0,y:0,z:0,est:'ok'},{sc:'CAT-02',piso:0,loc:'Cim T-S',x:15,y:0,z:0,est:'ok'},{sc:'CAT-03',piso:0,loc:'Cim T-N',x:-15,y:0,z:0,est:'ok'},{sc:'CAT-04',piso:2,loc:'Base Cúpula',x:0,y:0,z:20,est:'ok'},{sc:'CAT-05',piso:3,loc:'Cúp Media',x:0,y:0,z:35,est:'ok'},{sc:'CAT-06',piso:3,loc:'T-S Top',x:15,y:0,z:50,est:'ok'},{sc:'CAT-07',piso:3,loc:'T-N Top',x:-15,y:0,z:50,est:'ok'},{sc:'CAT-08',piso:3,loc:'Cúp Sup',x:0,y:0,z:45,est:'ok'}],
-'SV-SS-PAN-001':[{sc:'PAN-01',piso:0,loc:'Cim NE',x:-25,y:-20,z:0,est:'ok'},{sc:'PAN-02',piso:0,loc:'Cim NO',x:25,y:-20,z:0,est:'ok'},{sc:'PAN-03',piso:0,loc:'Cim SE',x:-25,y:20,z:0,est:'ok'},{sc:'PAN-04',piso:0,loc:'Cim SO',x:25,y:20,z:0,est:'ok'},{sc:'PAN-05',piso:4,loc:'Az NE',x:-25,y:-20,z:22,est:'ok'},{sc:'PAN-06',piso:4,loc:'Az NO',x:25,y:-20,z:22,est:'ok'},{sc:'PAN-07',piso:4,loc:'Az SE',x:-25,y:20,z:22,est:'ok'}],
-'SV-SS-TNA-001':[{sc:'TNA-01',piso:-1,loc:'Cim Frontal',x:0,y:-21,z:0,est:'ok'},{sc:'TNA-02',piso:-1,loc:'Cim Trasero',x:0,y:21,z:0,est:'ok'},{sc:'TNA-03',piso:2,loc:'Sala',x:0,y:0,z:8,est:'ok'},{sc:'TNA-04',piso:3,loc:'Palco',x:-10,y:0,z:10,est:'ok'},{sc:'TNA-05',piso:4,loc:'Az Tras',x:0,y:21,z:17,est:'ok'}],
-'SV-SS-UCA-001':[{sc:'UCA-01',piso:0,loc:'Cim N',x:0,y:-18,z:0,est:'ok'},{sc:'UCA-02',piso:0,loc:'Cim S',x:0,y:18,z:0,est:'ok'},{sc:'UCA-03',piso:1,loc:'Ent 1',x:-10,y:0,z:6,est:'ok'},{sc:'UCA-04',piso:2,loc:'Ent 2',x:10,y:0,z:12,est:'ok'},{sc:'UCA-05',piso:3,loc:'Ent 3',x:-10,y:0,z:18,est:'ok'},{sc:'UCA-06',piso:4,loc:'Ent 4',x:10,y:0,z:24,est:'ok'},{sc:'UCA-07',piso:5,loc:'Az N',x:0,y:-18,z:30,est:'ok'},{sc:'UCA-08',piso:5,loc:'Az S',x:0,y:18,z:30,est:'warn'},{sc:'UCA-09',piso:5,loc:'Az C',x:0,y:0,z:30,est:'ok'},{sc:'UCA-10',piso:5,loc:'Az Per',x:5,y:5,z:30,est:'ok'}]};
+'SV-SS-TPR-001':[{sc:'TPR-01',piso:-3,loc:'Cimiento N',x:0,y:-10,z:0,est:'ok'},{sc:'TPR-02',piso:-3,loc:'Cimiento S',x:0,y:10,z:0,est:'ok'},{sc:'TPR-03',piso:5,loc:'P5 S',x:0,y:10,z:25,est:'ok'},{sc:'TPR-04',piso:5,loc:'P5 N',x:0,y:-10,z:25,est:'ok'},{sc:'TPR-05',piso:12,loc:'P12 C',x:0,y:0,z:60,est:'ok'},{sc:'TPR-06',piso:18,loc:'P18 N',x:0,y:-10,z:90,est:'warn'},{sc:'TPR-07',piso:20,loc:'Azotea S',x:0,y:10,z:100,est:'warn'},{sc:'TPR-08',piso:20,loc:'Azotea N',x:0,y:-10,z:100,est:'warn'}],
+'SV-SS-CAT-001':[{sc:'CAT-01',piso:0,loc:'Cim Central',x:0,y:0,z:0,est:'ok'},{sc:'CAT-02',piso:0,loc:'Cim Torre S',x:25,y:-8,z:0,est:'ok'},{sc:'CAT-03',piso:0,loc:'Cim Torre N',x:-25,y:-8,z:0,est:'ok'},{sc:'CAT-04',piso:2,loc:'Base Cúpula',x:0,y:0,z:15,est:'ok'},{sc:'CAT-05',piso:3,loc:'Cúp Media',x:0,y:0,z:25,est:'ok'},{sc:'CAT-06',piso:3,loc:'Torre S Top',x:25,y:-8,z:48,est:'ok'},{sc:'CAT-07',piso:3,loc:'Torre N Top',x:-25,y:-8,z:48,est:'ok'},{sc:'CAT-08',piso:3,loc:'Cúp Sup',x:0,y:0,z:32,est:'ok'}],
+'SV-SS-PAN-001':[{sc:'PAN-01',piso:0,loc:'Cim NE',x:-28,y:-18,z:0,est:'ok'},{sc:'PAN-02',piso:0,loc:'Cim NO',x:28,y:-18,z:0,est:'ok'},{sc:'PAN-03',piso:0,loc:'Cim SE',x:-28,y:18,z:0,est:'ok'},{sc:'PAN-04',piso:0,loc:'Cim SO',x:28,y:18,z:0,est:'ok'},{sc:'PAN-05',piso:4,loc:'Az NE',x:-28,y:-18,z:22,est:'ok'},{sc:'PAN-06',piso:4,loc:'Az NO',x:28,y:-18,z:22,est:'ok'},{sc:'PAN-07',piso:4,loc:'Az SE',x:-28,y:18,z:22,est:'ok'}],
+'SV-SS-TNA-001':[{sc:'TNA-01',piso:-1,loc:'Cim Frontal',x:0,y:-10,z:0,est:'ok'},{sc:'TNA-02',piso:-1,loc:'Cim Trasero',x:0,y:10,z:0,est:'ok'},{sc:'TNA-03',piso:2,loc:'Sala',x:0,y:0,z:8,est:'ok'},{sc:'TNA-04',piso:3,loc:'Palco',x:-10,y:0,z:10,est:'ok'},{sc:'TNA-05',piso:4,loc:'Az Tras',x:0,y:10,z:17,est:'ok'}],
+'SV-SS-UCA-001':[{sc:'UCA-01',piso:0,loc:'Cim N',x:-20,y:-10,z:0,est:'ok'},{sc:'UCA-02',piso:0,loc:'Cim S',x:20,y:10,z:0,est:'ok'},{sc:'UCA-03',piso:1,loc:'Ent 1',x:-15,y:0,z:6,est:'ok'},{sc:'UCA-04',piso:2,loc:'Ent 2',x:15,y:0,z:12,est:'ok'},{sc:'UCA-05',piso:3,loc:'Ent 3',x:-15,y:0,z:18,est:'ok'},{sc:'UCA-06',piso:4,loc:'Ent 4',x:15,y:0,z:24,est:'ok'},{sc:'UCA-07',piso:5,loc:'Az N',x:-20,y:-10,z:30,est:'ok'},{sc:'UCA-08',piso:5,loc:'Az S',x:20,y:10,z:30,est:'warn'},{sc:'UCA-09',piso:5,loc:'Az C',x:0,y:0,z:30,est:'ok'},{sc:'UCA-10',piso:5,loc:'Az Per',x:8,y:8,z:30,est:'ok'}]};
 
 const SENSORES_POR_CAT={
 'Cinemática y dinámica estructural':[
@@ -365,7 +365,7 @@ const BOQUERON_ROUTES=[
 
 const HERO={
 '':{eye:'Eventos 24h · sismos globales + alertas + volcanes',title:'Monitor <em>planetario</em> en tiempo real',sub:'Datos integrados USGS-NEIC global M≥4.5 + EMSC + MARN + NOAA SPC + Smithsonian GVP. Globo orthographic interactivo con eventos multifuente últimas 24h.'},
-estructural:{eye:'Salud estructural · 5 edificios piloto · datos en vivo',title:'Hologramas 3D <em>interactivos</em>',sub:'Catedral, Palacio, Teatro, Torre Presidente, UCA. Datos vivos sis_edificios + análisis modal.'},
+estructural:{eye:'Salud estructural · 5 edificios piloto · datos en vivo',title:'Hologramas 3D <em>interactivos</em>',sub:'Catedral con cúpula y torres, Palacio con patio, Teatro con columnas, Torre Presidente rascacielos, UCA horizontal. Cada edificio con su silueta arquitectónica real + nodos sensores en posición física.'},
 sismic:{eye:'Red sísmica SV · click para abrir',title:'Actividad <em>sísmica</em> ampliada',sub:'Sismos M≥3.5 en 30 días. Click en fila para ver MARN + Google Maps + USGS.'},
 volcan:{eye:'Volcanes SV · datos enriquecidos',title:'Riesgo <em>volcánico</em> integrado',sub:'7 volcanes con imagen, anomalías térmicas FIRMS, erupciones históricas y precursores documentados.'},
 agentes:{eye:'CAIA · 20 agentes · A/B/AB/C/S',title:'Salud de <em>agentes</em> idworld',sub:'Tabla diagnóstica con dominio, modelo LLM, prompt OK, runs hoy y último timestamp.'},
@@ -398,45 +398,158 @@ document.getElementById('zoom-reset').addEventListener('click',()=>{zoom=1.0;rot
 
 function iso(x,y,z,rot){const c=Math.cos(rot),s=Math.sin(rot);const x2=x*c-y*s,y2=x*s+y*c;return{sx:(x2-y2)*.866,sy:(x2+y2)*.5-z*1.15}}
 
-// drawHolograma v12 · scale dinámico según altura del edificio
-// FIX v12: el scale ahora se calcula segun el bounding box real de los nodos del edificio
-// para que TODOS los edificios (Catedral 3 pisos hasta Torre Presidente 20 pisos) caben siempre
-function drawHolograma(svgEl,edif,rot,w,h){
-  const cx=w/2;
-  const Zmax=edif.altura||(edif.pisos*5);
-  const nodos=NODOS_POR_EDIFICIO[edif.edificio_id]||[];
-  // Calcular bounding box ISO de TODA la estructura para scale dinamico
-  const fX=40,fY=40;
-  const corn=[[-fX,-fY,0],[fX,-fY,0],[fX,fY,0],[-fX,fY,0],[-fX,-fY,Zmax],[fX,-fY,Zmax],[fX,fY,Zmax],[-fX,fY,Zmax]];
-  let minSX=Infinity,maxSX=-Infinity,minSY=Infinity,maxSY=-Infinity;
-  for(const[x,y,z] of corn){const p=iso(x,y,z,rot);if(p.sx<minSX)minSX=p.sx;if(p.sx>maxSX)maxSX=p.sx;if(p.sy<minSY)minSY=p.sy;if(p.sy>maxSY)maxSY=p.sy}
-  const bboxW=maxSX-minSX,bboxH=maxSY-minSY;
-  // Padding 8% por lado, scale = min entre fit horizontal y vertical
-  const scale=Math.min(w*0.84/bboxW, h*0.84/bboxH);
-  // Centrar verticalmente: cy ajustado segun el centro del bbox
-  const cy=h/2-((minSY+maxSY)/2)*scale;
-  let body='';
-  const projC=corn.slice(0,4).map(([x,y,z])=>{const p=iso(x,y,z,rot);return{x:cx+p.sx*scale,y:cy+p.sy*scale}});
-  body+='<polygon points="'+projC.map(p=>p.x.toFixed(1)+','+p.y.toFixed(1)).join(' ')+'" fill="rgba(34,211,238,.06)" stroke="#22d3ee" stroke-width="1.2" opacity=".7"/>';
-  const pisos=edif.pisos||Math.ceil(Zmax/5);
-  for(let f=0;f<=pisos;f++){
-    const zp=(f/pisos)*Zmax;
-    const cT=corn.slice(0,4).map(([x,y])=>{const p=iso(x,y,zp,rot);return{x:cx+p.sx*scale,y:cy+p.sy*scale}});
-    body+='<polygon points="'+cT.map(p=>p.x.toFixed(1)+','+p.y.toFixed(1)).join(' ')+'" fill="none" stroke="rgba(34,211,238,.15)" stroke-width=".6"/>';
-    if(f===0||f===pisos){for(let i=0;i<4;i++){const a=projC[i],b=cT[i];body+='<line x1="'+a.x.toFixed(1)+'" y1="'+a.y.toFixed(1)+'" x2="'+b.x.toFixed(1)+'" y2="'+b.y.toFixed(1)+'" stroke="#22d3ee" stroke-width="1" opacity=".5"/>'}}
+// drawHolograma v13 · siluetas REALES por edificio (Catedral con cúpula+torres, Torre rascacielos, etc)
+// Cada edificio tiene una geometría declarativa propia que refleja su forma arquitectónica real
+const HOLO_GEOM={
+  'SV-SS-CAT-001':{ // Catedral Metropolitana: nave + 2 torres campanario + cúpula central + cruces
+    boxes:[
+      {x:[-18,18],y:[-12,12],z:[0,15],kind:'nave',pisos:3},
+      {x:[-30,-20],y:[-12,-4],z:[0,50],kind:'torre'},
+      {x:[20,30],y:[-12,-4],z:[0,50],kind:'torre'},
+      {x:[-10,10],y:[-8,8],z:[15,32],kind:'cupula'}
+    ],
+    crosses:[{x:0,y:0,z:32,size:7},{x:-25,y:-8,z:50,size:5},{x:25,y:-8,z:50,size:5}]
+  },
+  'SV-SS-PAN-001':{ // Palacio Nacional: rectangular grande con patio interior central
+    boxes:[{x:[-30,30],y:[-20,20],z:[0,22],kind:'main',pisos:4}],
+    patio:{x:[-14,14],y:[-8,8],z:22}
+  },
+  'SV-SS-TNA-001':{ // Teatro Nacional: cuerpo + 6 columnas frontales + techo mansarda
+    boxes:[{x:[-18,18],y:[-12,12],z:[0,15],kind:'main',pisos:4}],
+    columnas:{n:6,xrange:[-15,15],y:-12,z:[0,15],r:1.2},
+    mansarda:{base:{x:[-18,18],y:[-12,12]},top:{x:[-14,14],y:[-8,8]},z_base:15,z_top:20}
+  },
+  'SV-SS-TPR-001':{ // Torre Presidente: rascacielos delgado vertical 20 pisos con bandas
+    boxes:[{x:[-12,12],y:[-12,12],z:[0,100],kind:'tower',pisos:20}],
+    bands_each:1 // banda horizontal cada N pisos para destacar
+  },
+  'SV-SS-UCA-001':{ // UCA Edificio Central: bloque horizontal extendido 5 pisos
+    boxes:[{x:[-32,32],y:[-12,12],z:[0,30],kind:'horizontal',pisos:5}]
   }
-  for(let i=0;i<4;i++){const a=projC[i];const t=iso(corn[i][0],corn[i][1],Zmax,rot);const b={x:cx+t.sx*scale,y:cy+t.sy*scale};body+='<line x1="'+a.x.toFixed(1)+'" y1="'+a.y.toFixed(1)+'" x2="'+b.x.toFixed(1)+'" y2="'+b.y.toFixed(1)+'" stroke="#22d3ee" stroke-width="1.2" opacity=".9"/>'}
-  // Nodos sensores con tamaño proporcional al scale
-  let nm='';
+};
+
+// Helper: proyecta punto (x,y,z) a coords de pantalla con rot, cx, cy, scale
+function _proj(x,y,z,rot,cx,cy,scale){const p=iso(x,y,z,rot);return{x:cx+p.sx*scale,y:cy+p.sy*scale}}
+
+// Helper: dibuja una caja wireframe definida por {x:[x0,x1],y:[y0,y1],z:[z0,z1]}
+// pisos opcional: dibuja líneas horizontales internas para sugerir niveles
+function _drawBox(b,rot,cx,cy,scale,opts){
+  const o=opts||{},stroke=o.stroke||'#22d3ee',fill=o.fill||'rgba(34,211,238,.06)',sw=o.sw||1.2,op=o.opacity||.7;
+  const x0=b.x[0],x1=b.x[1],y0=b.y[0],y1=b.y[1],z0=b.z[0],z1=b.z[1];
+  const corn=[[x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0],[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]];
+  const p=corn.map(c=>_proj(c[0],c[1],c[2],rot,cx,cy,scale));
+  let h='';
+  // Base + top
+  h+='<polygon points="'+p.slice(0,4).map(q=>q.x.toFixed(1)+','+q.y.toFixed(1)).join(' ')+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+sw+'" opacity="'+op+'"/>';
+  h+='<polygon points="'+p.slice(4,8).map(q=>q.x.toFixed(1)+','+q.y.toFixed(1)).join(' ')+'" fill="none" stroke="'+stroke+'" stroke-width="'+(sw*.85)+'" opacity="'+op+'"/>';
+  // 4 verticales
+  for(let i=0;i<4;i++)h+='<line x1="'+p[i].x.toFixed(1)+'" y1="'+p[i].y.toFixed(1)+'" x2="'+p[i+4].x.toFixed(1)+'" y2="'+p[i+4].y.toFixed(1)+'" stroke="'+stroke+'" stroke-width="'+sw+'" opacity="'+op+'"/>';
+  // Pisos internos
+  if(b.pisos&&b.pisos>1){
+    for(let f=1;f<b.pisos;f++){
+      const zp=z0+(f/b.pisos)*(z1-z0);
+      const pf=[[x0,y0,zp],[x1,y0,zp],[x1,y1,zp],[x0,y1,zp]].map(c=>_proj(c[0],c[1],c[2],rot,cx,cy,scale));
+      h+='<polygon points="'+pf.map(q=>q.x.toFixed(1)+','+q.y.toFixed(1)).join(' ')+'" fill="none" stroke="rgba(34,211,238,.18)" stroke-width=".5"/>';
+    }
+  }
+  return h;
+}
+
+// Helper: dibuja una cruz cristiana en posición (x,y,z) con tamaño dado
+function _drawCross(x,y,z,size,rot,cx,cy,scale){
+  const t=_proj(x,y,z,rot,cx,cy,scale);
+  const top={x:t.x,y:t.y-size*scale*.9},btm={x:t.x,y:t.y+size*scale*.2},armL={x:t.x-size*scale*.45,y:t.y-size*scale*.55},armR={x:t.x+size*scale*.45,y:t.y-size*scale*.55};
+  return '<line x1="'+top.x.toFixed(1)+'" y1="'+top.y.toFixed(1)+'" x2="'+btm.x.toFixed(1)+'" y2="'+btm.y.toFixed(1)+'" stroke="#22d3ee" stroke-width="1.4"/><line x1="'+armL.x.toFixed(1)+'" y1="'+armL.y.toFixed(1)+'" x2="'+armR.x.toFixed(1)+'" y2="'+armR.y.toFixed(1)+'" stroke="#22d3ee" stroke-width="1.4"/>';
+}
+
+// Helper: dibuja columnas verticales (Teatro frontal)
+function _drawColumns(cfg,rot,cx,cy,scale){
+  const n=cfg.n,xs=cfg.xrange[0],xe=cfg.xrange[1],y=cfg.y,z0=cfg.z[0],z1=cfg.z[1];
+  let h='';
+  for(let i=0;i<n;i++){
+    const xc=xs+(i/(n-1))*(xe-xs);
+    const a=_proj(xc,y,z0,rot,cx,cy,scale),b=_proj(xc,y,z1,rot,cx,cy,scale);
+    h+='<line x1="'+a.x.toFixed(1)+'" y1="'+a.y.toFixed(1)+'" x2="'+b.x.toFixed(1)+'" y2="'+b.y.toFixed(1)+'" stroke="#22d3ee" stroke-width="1.6" opacity=".85"/>';
+  }
+  return h;
+}
+
+// Helper: dibuja techo mansarda (pirámide truncada): base + top + 4 aristas oblicuas
+function _drawMansarda(m,rot,cx,cy,scale){
+  const b=m.base,t=m.top,zb=m.z_base,zt=m.z_top;
+  const baseP=[[b.x[0],b.y[0],zb],[b.x[1],b.y[0],zb],[b.x[1],b.y[1],zb],[b.x[0],b.y[1],zb]].map(c=>_proj(c[0],c[1],c[2],rot,cx,cy,scale));
+  const topP=[[t.x[0],t.y[0],zt],[t.x[1],t.y[0],zt],[t.x[1],t.y[1],zt],[t.x[0],t.y[1],zt]].map(c=>_proj(c[0],c[1],c[2],rot,cx,cy,scale));
+  let h='<polygon points="'+topP.map(q=>q.x.toFixed(1)+','+q.y.toFixed(1)).join(' ')+'" fill="rgba(34,211,238,.10)" stroke="#22d3ee" stroke-width="1.1" opacity=".85"/>';
+  for(let i=0;i<4;i++)h+='<line x1="'+baseP[i].x.toFixed(1)+'" y1="'+baseP[i].y.toFixed(1)+'" x2="'+topP[i].x.toFixed(1)+'" y2="'+topP[i].y.toFixed(1)+'" stroke="#22d3ee" stroke-width="1" opacity=".75"/>';
+  return h;
+}
+
+// Helper: dibuja patio interior (líneas en el techo del Palacio que sugieren hueco)
+function _drawPatio(p,rot,cx,cy,scale){
+  const corn=[[p.x[0],p.y[0],p.z],[p.x[1],p.y[0],p.z],[p.x[1],p.y[1],p.z],[p.x[0],p.y[1],p.z]].map(c=>_proj(c[0],c[1],c[2],rot,cx,cy,scale));
+  return '<polygon points="'+corn.map(q=>q.x.toFixed(1)+','+q.y.toFixed(1)).join(' ')+'" fill="rgba(34,211,238,.18)" stroke="#22d3ee" stroke-width="1.3" stroke-dasharray="3,2" opacity=".85"/>';
+}
+
+// Helper: dibuja nodos sensores sobre la geometría
+function _drawNodos(nodos,rot,cx,cy,scale){
   const sorted=nodos.map((n,i)=>({...n,i,_p:iso(n.x,n.y,n.z,rot)})).sort((a,b)=>a._p.sy-b._p.sy);
-  // Nodo size adaptativo: min 4, max 7
   const nsz=Math.max(4,Math.min(7,scale*1.2));
+  let h='';
   for(const n of sorted){
     const px=cx+n._p.sx*scale,py=cy+n._p.sy*scale;
     const col=n.est==='crit'?'#f87171':n.est==='warn'?'#fbbf24':'#4ade80';
-    nm+='<g><circle cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="'+(nsz*2.2).toFixed(1)+'" fill="'+col+'" opacity="0"><animate attributeName="r" values="'+nsz.toFixed(1)+';'+(nsz*2.4).toFixed(1)+';'+nsz.toFixed(1)+'" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2s" repeatCount="indefinite"/></circle><circle cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="'+nsz.toFixed(1)+'" fill="'+col+'" stroke="#fff" stroke-width="1.2"/></g>';
+    h+='<g><circle cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="'+(nsz*2.2).toFixed(1)+'" fill="'+col+'" opacity="0"><animate attributeName="r" values="'+nsz.toFixed(1)+';'+(nsz*2.4).toFixed(1)+';'+nsz.toFixed(1)+'" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2s" repeatCount="indefinite"/></circle><circle cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="'+nsz.toFixed(1)+'" fill="'+col+'" stroke="#fff" stroke-width="1.2"/></g>';
   }
-  svgEl.innerHTML=body+nm;
+  return h;
+}
+
+// Helper: calcula bbox isométrico de TODOS los puntos extremos de la geometría
+function _bboxGeom(geom,rot){
+  const pts=[];
+  for(const b of geom.boxes){
+    const x0=b.x[0],x1=b.x[1],y0=b.y[0],y1=b.y[1],z0=b.z[0],z1=b.z[1];
+    pts.push([x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0],[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]);
+  }
+  if(geom.mansarda){const m=geom.mansarda;pts.push([m.top.x[0],m.top.y[0],m.z_top],[m.top.x[1],m.top.y[0],m.z_top],[m.top.x[1],m.top.y[1],m.z_top],[m.top.x[0],m.top.y[1],m.z_top])}
+  if(geom.crosses)for(const c of geom.crosses)pts.push([c.x,c.y,c.z+c.size]);
+  let minSX=Infinity,maxSX=-Infinity,minSY=Infinity,maxSY=-Infinity;
+  for(const[x,y,z]of pts){const p=iso(x,y,z,rot);if(p.sx<minSX)minSX=p.sx;if(p.sx>maxSX)maxSX=p.sx;if(p.sy<minSY)minSY=p.sy;if(p.sy>maxSY)maxSY=p.sy}
+  return{minSX,maxSX,minSY,maxSY};
+}
+
+// drawHolograma principal: detecta edificio_id y dibuja silueta real
+function drawHolograma(svgEl,edif,rot,w,h){
+  const geom=HOLO_GEOM[edif.edificio_id];
+  if(!geom){
+    // Fallback genérico (cubo) si no hay geometría definida
+    const Zmax=edif.altura||(edif.pisos*5);
+    const fallback={boxes:[{x:[-30,30],y:[-30,30],z:[0,Zmax],pisos:edif.pisos||1}]};
+    return drawHolograma2(svgEl,edif,rot,w,h,fallback);
+  }
+  return drawHolograma2(svgEl,edif,rot,w,h,geom);
+}
+function drawHolograma2(svgEl,edif,rot,w,h,geom){
+  const bb=_bboxGeom(geom,rot);
+  const bboxW=bb.maxSX-bb.minSX,bboxH=bb.maxSY-bb.minSY;
+  const scale=Math.min(w*0.84/bboxW,h*0.84/bboxH);
+  const cx=w/2,cy=h/2-((bb.minSY+bb.maxSY)/2)*scale;
+  let body='';
+  // Dibujar cada caja con estilo según kind
+  for(const b of geom.boxes){
+    const opts={};
+    if(b.kind==='cupula')opts.fill='rgba(34,211,238,.10)';
+    else if(b.kind==='torre')opts.fill='rgba(34,211,238,.04)';
+    else if(b.kind==='tower')opts.fill='rgba(34,211,238,.05)';
+    body+=_drawBox(b,rot,cx,cy,scale,opts);
+  }
+  // Features adicionales
+  if(geom.mansarda)body+=_drawMansarda(geom.mansarda,rot,cx,cy,scale);
+  if(geom.columnas)body+=_drawColumns(geom.columnas,rot,cx,cy,scale);
+  if(geom.patio)body+=_drawPatio(geom.patio,rot,cx,cy,scale);
+  if(geom.crosses)for(const c of geom.crosses)body+=_drawCross(c.x,c.y,c.z,c.size,rot,cx,cy,scale);
+  // Nodos sensores siempre encima
+  body+=_drawNodos(NODOS_POR_EDIFICIO[edif.edificio_id]||[],rot,cx,cy,scale);
+  svgEl.innerHTML=body;
 }
 
 function drawBoqueron(){const svg=document.getElementById('boqueron-svg');if(!svg)return;const cx=300,cy=230;let h='<defs>';BOQUERON_ROUTES.forEach((r,i)=>{h+='<linearGradient id="lavaG'+i+'" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f87171" stop-opacity=".95"/><stop offset="70%" stop-color="'+r.color+'" stop-opacity=".7"/><stop offset="100%" stop-color="'+r.color+'" stop-opacity=".15"/></linearGradient>'});h+='<radialGradient id="coneG" cx="50%" cy="60%" r="60%"><stop offset="0" stop-color="#3a2515"/><stop offset="1" stop-color="#1a1008"/></radialGradient><radialGradient id="craterG" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fbbf24"/><stop offset=".5" stop-color="#f87171"/><stop offset="1" stop-color="#7f1d1d"/></radialGradient></defs><rect width="600" height="460" fill="#0a1218"/>';for(let i=0;i<12;i++)h+='<line x1="0" y1="'+(i*40)+'" x2="600" y2="'+(i*40)+'" stroke="#1a252e" stroke-width=".5"/>';for(let i=0;i<16;i++)h+='<line x1="'+(i*40)+'" y1="0" x2="'+(i*40)+'" y2="460" stroke="#1a252e" stroke-width=".5"/>';h+='<g transform="translate(50,60)" font-family="JetBrains Mono" font-size="9" fill="#6b7d89"><circle cx="0" cy="0" r="22" fill="none" stroke="#2a3640" stroke-width=".8"/><text x="0" y="-28" text-anchor="middle" fill="#a0afbb">N</text><text x="30" y="3">E</text><text x="0" y="35" text-anchor="middle">S</text><text x="-32" y="3" text-anchor="end">O</text><line x1="0" y1="0" x2="0" y2="-18" stroke="#22d3ee" stroke-width="1.5"/></g>';const cities=[{n:'San Salvador',x:520,y:200,a:'end'},{n:'Santa Tecla',x:505,y:320,a:'end'},{n:'Colón',x:100,y:340,a:'start'},{n:'Opico',x:55,y:180,a:'start'},{n:'Quezaltepeque',x:270,y:80,a:'middle'},{n:'Nejapa · Apopa',x:430,y:100,a:'middle'}];const ang={'NE':45,'N':0,'NO':-45,'E':90,'SE':135,'SO':-135};const arc=(a,d)=>{const r=(a-90)*Math.PI/180;return{x:cx+Math.cos(r)*d,y:cy+Math.sin(r)*d}};BOQUERON_ROUTES.forEach((rt,i)=>{const a=ang[rt.dir],end=arc(a,rt.km*14),mid=arc(a+(rt.dir==='E'?-8:rt.dir==='SO'?8:5),rt.km*8),w=4+rt.prob*.12;h+='<path d="M '+cx+' '+cy+' Q '+mid.x.toFixed(1)+' '+mid.y.toFixed(1)+' '+end.x.toFixed(1)+' '+end.y.toFixed(1)+'" stroke="url(#lavaG'+i+')" stroke-width="'+w+'" fill="none" stroke-linecap="round" opacity=".85" class="lava-path" data-idx="'+i+'"/><circle cx="'+end.x.toFixed(1)+'" cy="'+end.y.toFixed(1)+'" r="4" fill="'+rt.color+'"><animate attributeName="r" values="3;8;3" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.3;1" dur="2.2s" repeatCount="indefinite"/></circle><text x="'+(end.x+(rt.dir.includes('O')?-14:14)).toFixed(1)+'" y="'+(end.y+(rt.dir.includes('S')?14:-6)).toFixed(1)+'" font-family="JetBrains Mono" font-size="10" fill="'+rt.color+'" text-anchor="'+(rt.dir.includes('O')?'end':'start')+'" font-weight="700">'+rt.prob+'%</text>'});h+='<circle cx="'+cx+'" cy="'+cy+'" r="26" fill="url(#coneG)" stroke="#3a2515"/><circle cx="'+cx+'" cy="'+cy+'" r="14" fill="url(#craterG)" stroke="#f87171" stroke-width="1.5"/><circle cx="'+cx+'" cy="'+cy+'" r="36" fill="none" stroke="#f87171" stroke-width="1" opacity=".4"><animate attributeName="r" values="28;50;28" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.8s" repeatCount="indefinite"/></circle><text x="'+cx+'" y="'+(cy+50)+'" text-anchor="middle" font-family="Fraunces" font-size="14" font-style="italic" fill="#ffa04d">Boquerón</text>';cities.forEach(c=>{h+='<text x="'+c.x+'" y="'+c.y+'" text-anchor="'+c.a+'" font-family="JetBrains Mono" font-size="9" fill="#a0afbb">'+c.n+'</text>'});svg.innerHTML=h;document.querySelectorAll('.route-item').forEach(el=>{el.addEventListener('mouseenter',()=>{const idx=+el.dataset.idx;document.querySelectorAll('.lava-path').forEach((p,i)=>{p.style.opacity=i===idx?'1':'.25'})});el.addEventListener('mouseleave',()=>{document.querySelectorAll('.lava-path').forEach(p=>{p.style.opacity='.85'})})})}
